@@ -1,0 +1,20 @@
+local Remap = require("mattias.keymap")
+local telescope_themes = require('telescope.themes')
+local nnoremap = Remap.nnoremap
+
+nnoremap("<leader>gf", function()
+    require('telescope.builtin').git_files(telescope_themes.get_dropdown())
+end)
+nnoremap("<Leader>pf", function()
+    require('telescope.builtin').find_files(telescope_themes.get_dropdown())
+end)
+
+nnoremap("<leader>pw", function()
+    require('telescope.builtin').grep_string(telescope_themes.get_dropdown({ search = vim.fn.expand("<cword>") } ))
+end)
+nnoremap("<leader>pb", function()
+    require('telescope.builtin').buffers(telescope_themes.get_dropdown())
+end)
+nnoremap("<leader>vh", function()
+    require('telescope.builtin').help_tags()
+end)

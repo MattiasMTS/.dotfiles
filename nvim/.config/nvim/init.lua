@@ -1,0 +1,7 @@
+require("mattias.init")
+require("mattias.set")
+require("mattias.keymap")
+require("mattias.packer")
+require("mattias.telescope")
+require("mattias.autopairs")
+require("mattias.neogit")
