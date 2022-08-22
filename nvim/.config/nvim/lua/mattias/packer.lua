@@ -1,8 +1,12 @@
-return require("packer").startup(function(use)
+local status, packer = pcall(require, 'packer')
+if (not status) then
+  print('Packer is not installed OPSIE')
+  return
+end
+
+return packer.startup(function(use)
     -- plugins start here:
     use("wbthomason/packer.nvim")  -- Packer manager
-    -- use("nvim-lua/popup.nvim")  -- Popup API
-    use("nvim-lua/plenary.nvim")  -- Useful lua functions for telescope
     use("tpope/vim-commentary")  -- useful gc comment block of code
     -- use("antoinemadec/FixCursorHold.nvim") -- fix lsp trigger
 
@@ -25,7 +29,7 @@ return require("packer").startup(function(use)
     use("neovim/nvim-lspconfig")  -- enable LSP
     use("williamboman/nvim-lsp-installer")  -- simple to use lsp installer
     use("RRethy/vim-illuminate")  -- highlight same words
-    use("onsails/lspkind-nvim")
+    use("onsails/lspkind-nvim")  -- vscode-like pictograms
     use("nanotee/sqls.nvim")
     -- use({
   -- "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
@@ -37,12 +41,17 @@ return require("packer").startup(function(use)
 
     -- Telescope
     use("nvim-telescope/telescope.nvim")
-    use("BurntSushi/ripgrep")
+    use("nvim-telescope/telescope-file-browser.nvim")
+    use("nvim-lua/plenary.nvim")  -- Useful lua functions for telescope
+    use('kyazdani42/nvim-web-devicons')  -- file icons
 
     -- Treesitter
     use("nvim-treesitter/nvim-treesitter", {
         run = ":TSUpdate"
     })
+
+    -- Statusline
+    use('hoob3rt/lualine.nvim')
 
     -- Colorscheme section
     use("folke/tokyonight.nvim")

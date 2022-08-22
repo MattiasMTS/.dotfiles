@@ -4,8 +4,6 @@ if not cmp_status_ok then
 end
 
 local snip_status_ok, luasnip = pcall(require, 'luasnip')
-local cmp = require("cmp")
-local luasnip = require 'luasnip'
 
 
 require('luasnip/loaders/from_vscode').lazy_load()

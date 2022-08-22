@@ -72,127 +72,137 @@ _G.packer_plugins = {
   LuaSnip = {
     loaded = true,
     path = "/Users/mattiassjodin/.local/share/nvim/site/pack/packer/start/LuaSnip",
-    url = "https://github.com/L3MON4D3/LuaSnip"
+    url = "https://github.com/L3MON4D3/LuaSnip.git"
   },
   ["cmp-buffer"] = {
     loaded = true,
     path = "/Users/mattiassjodin/.local/share/nvim/site/pack/packer/start/cmp-buffer",
-    url = "https://github.com/hrsh7th/cmp-buffer"
+    url = "https://github.com/hrsh7th/cmp-buffer.git"
   },
   ["cmp-cmdline"] = {
     loaded = true,
     path = "/Users/mattiassjodin/.local/share/nvim/site/pack/packer/start/cmp-cmdline",
-    url = "https://github.com/hrsh7th/cmp-cmdline"
+    url = "https://github.com/hrsh7th/cmp-cmdline.git"
   },
   ["cmp-nvim-lsp"] = {
     loaded = true,
     path = "/Users/mattiassjodin/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp",
-    url = "https://github.com/hrsh7th/cmp-nvim-lsp"
+    url = "https://github.com/hrsh7th/cmp-nvim-lsp.git"
   },
   ["cmp-nvim-lua"] = {
     loaded = true,
     path = "/Users/mattiassjodin/.local/share/nvim/site/pack/packer/start/cmp-nvim-lua",
-    url = "https://github.com/hrsh7th/cmp-nvim-lua"
+    url = "https://github.com/hrsh7th/cmp-nvim-lua.git"
   },
   ["cmp-path"] = {
     loaded = true,
     path = "/Users/mattiassjodin/.local/share/nvim/site/pack/packer/start/cmp-path",
-    url = "https://github.com/hrsh7th/cmp-path"
+    url = "https://github.com/hrsh7th/cmp-path.git"
   },
   cmp_luasnip = {
     loaded = true,
     path = "/Users/mattiassjodin/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
-    url = "https://github.com/saadparwaiz1/cmp_luasnip"
+    url = "https://github.com/saadparwaiz1/cmp_luasnip.git"
   },
   ["friendly-snippets"] = {
     loaded = true,
     path = "/Users/mattiassjodin/.local/share/nvim/site/pack/packer/start/friendly-snippets",
-    url = "https://github.com/rafamadriz/friendly-snippets"
+    url = "https://github.com/rafamadriz/friendly-snippets.git"
   },
   ["lsp_extensions.nvim"] = {
     loaded = true,
     path = "/Users/mattiassjodin/.local/share/nvim/site/pack/packer/start/lsp_extensions.nvim",
-    url = "https://github.com/nvim-lua/lsp_extensions.nvim"
+    url = "https://github.com/nvim-lua/lsp_extensions.nvim.git"
   },
   ["lspkind-nvim"] = {
     loaded = true,
     path = "/Users/mattiassjodin/.local/share/nvim/site/pack/packer/start/lspkind-nvim",
-    url = "https://github.com/onsails/lspkind-nvim"
+    url = "https://github.com/onsails/lspkind-nvim.git"
+  },
+  ["lualine.nvim"] = {
+    loaded = true,
+    path = "/Users/mattiassjodin/.local/share/nvim/site/pack/packer/start/lualine.nvim",
+    url = "https://github.com/hoob3rt/lualine.nvim.git"
   },
   neogit = {
     loaded = true,
     path = "/Users/mattiassjodin/.local/share/nvim/site/pack/packer/start/neogit",
-    url = "https://github.com/TimUntersberger/neogit"
+    url = "https://github.com/TimUntersberger/neogit.git"
   },
   ["nvim-autopairs"] = {
     loaded = true,
     path = "/Users/mattiassjodin/.local/share/nvim/site/pack/packer/start/nvim-autopairs",
-    url = "https://github.com/windwp/nvim-autopairs"
+    url = "https://github.com/windwp/nvim-autopairs.git"
   },
   ["nvim-cmp"] = {
     loaded = true,
     path = "/Users/mattiassjodin/.local/share/nvim/site/pack/packer/start/nvim-cmp",
-    url = "https://github.com/hrsh7th/nvim-cmp"
+    url = "https://github.com/hrsh7th/nvim-cmp.git"
   },
   ["nvim-lsp-installer"] = {
     loaded = true,
     path = "/Users/mattiassjodin/.local/share/nvim/site/pack/packer/start/nvim-lsp-installer",
-    url = "https://github.com/williamboman/nvim-lsp-installer"
+    url = "https://github.com/williamboman/nvim-lsp-installer.git"
   },
   ["nvim-lspconfig"] = {
     loaded = true,
     path = "/Users/mattiassjodin/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
-    url = "https://github.com/neovim/nvim-lspconfig"
+    url = "https://github.com/neovim/nvim-lspconfig.git"
   },
   ["nvim-treesitter"] = {
     loaded = true,
     path = "/Users/mattiassjodin/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
-    url = "https://github.com/nvim-treesitter/nvim-treesitter"
+    url = "https://github.com/nvim-treesitter/nvim-treesitter.git"
+  },
+  ["nvim-web-devicons"] = {
+    loaded = true,
+    path = "/Users/mattiassjodin/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
+    url = "https://github.com/kyazdani42/nvim-web-devicons.git"
   },
   ["packer.nvim"] = {
     loaded = true,
     path = "/Users/mattiassjodin/.local/share/nvim/site/pack/packer/start/packer.nvim",
-    url = "https://github.com/wbthomason/packer.nvim"
+    url = "https://github.com/wbthomason/packer.nvim.git"
   },
   ["plenary.nvim"] = {
     loaded = true,
     path = "/Users/mattiassjodin/.local/share/nvim/site/pack/packer/start/plenary.nvim",
-    url = "https://github.com/nvim-lua/plenary.nvim"
-  },
-  ripgrep = {
-    loaded = true,
-    path = "/Users/mattiassjodin/.local/share/nvim/site/pack/packer/start/ripgrep",
-    url = "https://github.com/BurntSushi/ripgrep"
+    url = "https://github.com/nvim-lua/plenary.nvim.git"
   },
   ["sqls.nvim"] = {
     loaded = true,
     path = "/Users/mattiassjodin/.local/share/nvim/site/pack/packer/start/sqls.nvim",
-    url = "https://github.com/nanotee/sqls.nvim"
+    url = "https://github.com/nanotee/sqls.nvim.git"
+  },
+  ["telescope-file-browser.nvim"] = {
+    loaded = true,
+    path = "/Users/mattiassjodin/.local/share/nvim/site/pack/packer/start/telescope-file-browser.nvim",
+    url = "https://github.com/nvim-telescope/telescope-file-browser.nvim.git"
   },
   ["telescope.nvim"] = {
     loaded = true,
     path = "/Users/mattiassjodin/.local/share/nvim/site/pack/packer/start/telescope.nvim",
-    url = "https://github.com/nvim-telescope/telescope.nvim"
+    url = "https://github.com/nvim-telescope/telescope.nvim.git"
   },
   ["tokyonight.nvim"] = {
     loaded = true,
     path = "/Users/mattiassjodin/.local/share/nvim/site/pack/packer/start/tokyonight.nvim",
-    url = "https://github.com/folke/tokyonight.nvim"
+    url = "https://github.com/folke/tokyonight.nvim.git"
   },
   undotree = {
     loaded = true,
     path = "/Users/mattiassjodin/.local/share/nvim/site/pack/packer/start/undotree",
-    url = "https://github.com/mbbill/undotree"
+    url = "https://github.com/mbbill/undotree.git"
   },
   ["vim-commentary"] = {
     loaded = true,
     path = "/Users/mattiassjodin/.local/share/nvim/site/pack/packer/start/vim-commentary",
-    url = "https://github.com/tpope/vim-commentary"
+    url = "https://github.com/tpope/vim-commentary.git"
   },
   ["vim-illuminate"] = {
     loaded = true,
     path = "/Users/mattiassjodin/.local/share/nvim/site/pack/packer/start/vim-illuminate",
-    url = "https://github.com/RRethy/vim-illuminate"
+    url = "https://github.com/RRethy/vim-illuminate.git"
   }
 }
 
