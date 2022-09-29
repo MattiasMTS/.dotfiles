@@ -30,7 +30,8 @@ return packer.startup(function(use)
     use("williamboman/nvim-lsp-installer")  -- simple to use lsp installer
     use("RRethy/vim-illuminate")  -- highlight same words
     use("onsails/lspkind-nvim")  -- vscode-like pictograms
-    use("nanotee/sqls.nvim")
+    use('williamboman/mason.nvim')
+    use('williamboman/mason-lspconfig.nvim')
     -- use({
   -- "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
   -- config = function()
@@ -49,6 +50,7 @@ return packer.startup(function(use)
     use("nvim-treesitter/nvim-treesitter", {
         run = ":TSUpdate"
     })
+    use("nvim-treesitter/nvim-treesitter-context")
 
     -- Statusline
     use('hoob3rt/lualine.nvim')
@@ -68,4 +70,6 @@ return packer.startup(function(use)
     -- if PACKER_BOOTSTRAP then
     --     require("packer").sync()
     -- end
+    -- PRACTICE LETS GOOOO
+    use("ThePrimeagen/vim-be-good")
 end)

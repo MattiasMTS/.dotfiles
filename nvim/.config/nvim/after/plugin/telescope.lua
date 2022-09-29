@@ -4,6 +4,10 @@ local actions = require('telescope.actions')
 local builtin = require('telescope.builtin')
 local previewers = require('telescope.previewers')
 
+local function telescope_buffer_dir()
+  return vim.fn.expand('%:p:h')
+end
+
 telescope.setup {
 	defaults = {
 		mappings = {
@@ -36,12 +40,6 @@ telescope.setup {
       theme = 'dropdown',
     },
   },
-  extensions = {
-    file_browser = {
-      -- disables netrw
-      hijack_netrw = true,
-    }
-  }
 }
 
 local M = {}

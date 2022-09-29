@@ -26,14 +26,12 @@ vim.opt.relativenumber = true
 
 vim.opt.errorbells = false
 
-vim.opt.tabstop = 4
+vim.opt.tabstop = 4 -- use 4 spaces to represent tab
 vim.opt.softtabstop = 4
-vim.opt.shiftwidth = 4
-vim.opt.expandtab = true
+vim.opt.shiftwidth = 4 -- number of spaces to use for auto indent
+vim.opt.expandtab = true  -- enter spaces when tab is pressed
 vim.opt.smarttab = true
-vim.opt.expandtab = true
 vim.opt.breakindent = true
-vim.opt.shiftwidth = 2
 vim.opt.smartindent = true
 vim.opt.ai = true  -- auto indent
 vim.opt.si = true  -- smart indent
@@ -47,7 +45,7 @@ vim.opt.showmatch = true
 vim.opt.wrap = false
 
 -- Highlight stuff
-vim.opt.cursorline = true
+vim.opt.cursorline = false
 vim.opt.termguicolors = true
 vim.opt.guicursor = ""
 vim.opt.winblend = 0

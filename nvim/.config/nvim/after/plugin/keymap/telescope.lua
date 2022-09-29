@@ -33,7 +33,7 @@ nnoremap("<leader>fb", function()
     hidden = true,
     grouped = true,
     previewer = false,
-    initial_mode = "normal",
+    -- initial_mode = "normal",
     layout_config = { height = 40 }
   })
 end)
