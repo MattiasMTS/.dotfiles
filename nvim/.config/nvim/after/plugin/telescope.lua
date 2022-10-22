@@ -8,12 +8,15 @@ local function telescope_buffer_dir()
   return vim.fn.expand('%:p:h')
 end
 
+telescope.load_extension("fzf")
 telescope.setup {
 	defaults = {
 		mappings = {
 			i = {
 				["<C-x>"] = false,
-				["<C-q>"] = actions.send_to_qflist,
+				["<C-q>"] = actions.send_to_qflist + actions.open_qflist,
+				["<C-k>"] = actions.move_selection_previous,
+				["<C-j>"] = actions.move_selection_next
 			},
 		},
 		file_sorter = require("telescope.sorters").get_fzy_sorter,

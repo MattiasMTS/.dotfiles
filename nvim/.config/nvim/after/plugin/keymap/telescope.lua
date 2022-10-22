@@ -1,6 +1,7 @@
 local Remap = require("mattias.keymap")
 local nnoremap = Remap.nnoremap
-local telescope = require('telescope')
+local telescope = require("telescope")
+local builtin = require("telescope.builtin")
 telescope.load_extension("file_browser")
 
 -- function for cwd of file structure
@@ -9,20 +10,21 @@ local function telescope_buffer_dir()
 end
 
 nnoremap("<leader>gf", function()
-    require('telescope.builtin').git_files()
+    builtin.git_files()
 end)
 nnoremap("<Leader>pf", function()
-    require('telescope.builtin').find_files()
+    builtin.find_files()
 end)
 
 nnoremap("<leader>pw", function()
-    require('telescope.builtin').grep_string{ search = vim.fn.expand("<cword>") }
+    builtin.live_grep{ search = vim.fn.expand("<cword>") }
 end)
+nnoremap("<leader>ps", "<cmd>Telescope grep_string<cr>")
 nnoremap("<leader>pb", function()
-    require('telescope.builtin').buffers()
+    builtin.buffers()
 end)
 nnoremap("<leader>vh", function()
-    require('telescope.builtin').help_tags()
+    builtin.help_tags()
 end)
 -- sweet file browser window
 nnoremap("<leader>fb", function()

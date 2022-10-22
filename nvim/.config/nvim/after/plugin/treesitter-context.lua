@@ -66,6 +66,11 @@ function ContextSetup(show_all_context)
             yaml = {
                 'block_mapping_pair',
             },
+            python = {
+                'return_type',
+                'parameters',
+                'superclasses',
+            },
         },
     })
 end

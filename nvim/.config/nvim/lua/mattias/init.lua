@@ -1,3 +1,9 @@
+local status, lsp_extensions = pcall(require, 'lsp_extensions')
+if not status then
+    print('lsp_extensions failed')
+    return
+end
+
 local augroup = vim.api.nvim_create_augroup
 local M = {}
 mattias_group = augroup('mattias', {})
@@ -11,7 +17,7 @@ autocmd({"BufEnter", "BufWinEnter", "TabEnter"}, {
     group = mattias_group,
     pattern = "*.rs",
     callback = function()
-        require("lsp_extensions").inlay_hints{}
+        lsp_extensions.inlay_hints{}
     end
 })
 

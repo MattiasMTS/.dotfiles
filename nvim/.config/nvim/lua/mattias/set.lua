@@ -1,4 +1,5 @@
-vim.cmd('autocmd!')
+-- mapleader
+vim.g.mapleader = " "
 
 vim.scriptencoding = 'utf-8'
 vim.opt.encoding = 'utf-8'
@@ -14,10 +15,10 @@ vim.opt.backup = false
 vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
 vim.opt.undofile = true
 vim.opt.showcmd = true
+
 -- Give more space for displaying messages.
 vim.opt.cmdheight = 1
 vim.opt.laststatus = 2
-vim.opt.shell = 'oh-my-zsh'
 vim.opt.inccommand = 'split'
 vim.opt.ignorecase = true
 
@@ -27,11 +28,11 @@ vim.opt.relativenumber = true
 vim.opt.errorbells = false
 
 vim.opt.tabstop = 4 -- use 4 spaces to represent tab
-vim.opt.softtabstop = 4
+-- vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4 -- number of spaces to use for auto indent
 vim.opt.expandtab = true  -- enter spaces when tab is pressed
-vim.opt.smarttab = true
-vim.opt.breakindent = true
+-- vim.opt.smarttab = true
+-- vim.opt.breakindent = true
 vim.opt.smartindent = true
 vim.opt.ai = true  -- auto indent
 vim.opt.si = true  -- smart indent
@@ -45,12 +46,9 @@ vim.opt.showmatch = true
 vim.opt.wrap = false
 
 -- Highlight stuff
-vim.opt.cursorline = false
+vim.opt.cursorline = true
 vim.opt.termguicolors = true
 vim.opt.guicursor = ""
-vim.opt.winblend = 0
-vim.opt.wildoptions = 'pum'
-vim.opt.pumblend = 5
 
 vim.opt.scrolloff = 8
 vim.opt.signcolumn = "yes"
@@ -66,8 +64,5 @@ vim.opt.shortmess:append("c")
 
 -- according to PEP-8 convention
 vim.opt.colorcolumn = "80"
-
--- mapleader
-vim.g.mapleader = " "
 
 -- TODO check for undercurl once fixed for iTerm2?
