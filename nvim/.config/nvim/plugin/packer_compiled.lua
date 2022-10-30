@@ -114,6 +114,11 @@ _G.packer_plugins = {
     path = "/Users/mattiassjodin/.local/share/nvim/site/pack/packer/start/friendly-snippets",
     url = "https://github.com/rafamadriz/friendly-snippets"
   },
+  ["gitsigns.nvim"] = {
+    loaded = true,
+    path = "/Users/mattiassjodin/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",
+    url = "https://github.com/lewis6991/gitsigns.nvim"
+  },
   ["lsp_extensions.nvim"] = {
     loaded = true,
     path = "/Users/mattiassjodin/.local/share/nvim/site/pack/packer/start/lsp_extensions.nvim",
@@ -154,10 +159,10 @@ _G.packer_plugins = {
     path = "/Users/mattiassjodin/.local/share/nvim/site/pack/packer/start/neogen",
     url = "https://github.com/danymat/neogen"
   },
-  neogit = {
+  neoterm = {
     loaded = true,
-    path = "/Users/mattiassjodin/.local/share/nvim/site/pack/packer/start/neogit",
-    url = "https://github.com/TimUntersberger/neogit"
+    path = "/Users/mattiassjodin/.local/share/nvim/site/pack/packer/start/neoterm",
+    url = "https://github.com/kassio/neoterm"
   },
   ["null-ls.nvim"] = {
     loaded = true,
@@ -204,6 +209,11 @@ _G.packer_plugins = {
     path = "/Users/mattiassjodin/.local/share/nvim/site/pack/packer/start/plenary.nvim",
     url = "https://github.com/nvim-lua/plenary.nvim"
   },
+  ["refactoring.nvim"] = {
+    loaded = true,
+    path = "/Users/mattiassjodin/.local/share/nvim/site/pack/packer/start/refactoring.nvim",
+    url = "https://github.com/ThePrimeagen/refactoring.nvim"
+  },
   ["telescope-file-browser.nvim"] = {
     loaded = true,
     path = "/Users/mattiassjodin/.local/share/nvim/site/pack/packer/start/telescope-file-browser.nvim",
@@ -229,10 +239,30 @@ _G.packer_plugins = {
     path = "/Users/mattiassjodin/.local/share/nvim/site/pack/packer/start/undotree",
     url = "https://github.com/mbbill/undotree"
   },
+  ["vim-be-good"] = {
+    loaded = true,
+    path = "/Users/mattiassjodin/.local/share/nvim/site/pack/packer/start/vim-be-good",
+    url = "https://github.com/ThePrimeagen/vim-be-good"
+  },
   ["vim-commentary"] = {
     loaded = true,
     path = "/Users/mattiassjodin/.local/share/nvim/site/pack/packer/start/vim-commentary",
     url = "https://github.com/tpope/vim-commentary"
+  },
+  ["vim-dadbod"] = {
+    loaded = true,
+    path = "/Users/mattiassjodin/.local/share/nvim/site/pack/packer/start/vim-dadbod",
+    url = "https://github.com/tpope/vim-dadbod"
+  },
+  ["vim-dadbod-completion"] = {
+    loaded = true,
+    path = "/Users/mattiassjodin/.local/share/nvim/site/pack/packer/start/vim-dadbod-completion",
+    url = "https://github.com/kristijanhusak/vim-dadbod-completion"
+  },
+  ["vim-dadbod-ui"] = {
+    loaded = true,
+    path = "/Users/mattiassjodin/.local/share/nvim/site/pack/packer/start/vim-dadbod-ui",
+    url = "https://github.com/MattiasMTS/vim-dadbod-ui"
   },
   ["vim-illuminate"] = {
     loaded = true,

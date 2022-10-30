@@ -27,8 +27,8 @@ mason_lspconfig.setup({
 		"yamlls",
 		"pyright",
 		"gopls",
-		"sqls",
 		"jsonls",
+		"sqls",
 	},
 	ui = {
 		icons = {

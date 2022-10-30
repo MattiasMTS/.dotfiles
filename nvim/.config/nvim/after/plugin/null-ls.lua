@@ -7,6 +7,7 @@ end
 -- for conciseness
 local formatting = null_ls.builtins.formatting -- to setup formatters
 local diagnostics = null_ls.builtins.diagnostics -- to setup linters
+local code_actions = null_ls.builtins.code_actions -- gitsigns
 
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
@@ -16,9 +17,23 @@ null_ls.setup({
 	sources = {
 		--  to disable file types use
 		--  "formatting.prettier.with({disabled_filetypes: {}})" (see null-ls docs)
+		-- code actions
+		code_actions.gitsigns,
+		code_actions.refactoring,
+		code_actions.gitrebase,
+        code_actions.eslint_d,
+		-- formatting
 		formatting.prettier,
+		formatting.sql_formatter,
 		formatting.stylua, -- lua formatter
+		formatting.isort,
+		formatting.black,
+		formatting.sqlfluff,
+
+		-- diagnostics
 		diagnostics.eslint_d,
+		-- diagnostics.flake8,
+		-- diagnostics.mypy,
 	},
 	-- configure format on save
 	on_attach = function(current_client, bufnr)

@@ -1,6 +1,5 @@
 local Remap = require("mattias.keymap")
 local nnoremap = Remap.nnoremap
-local inoremap = Remap.inoremap
 local status, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
 if not status then
 	print("cmp_nvim_lsp failed")
@@ -82,7 +81,7 @@ lspconfig.yamlls.setup({
 })
 
 -- .py, .go, .sql/mysql files: .json
-local servers = { "pyright", "gopls", "sqls", "jsonls" }
+local servers = { "pyright", "gopls", "jsonls" }
 for _, lsp in ipairs(servers) do
 	lspconfig[lsp].setup({
 		capabilities = capabilities,
