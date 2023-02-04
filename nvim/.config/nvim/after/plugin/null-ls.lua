@@ -8,6 +8,7 @@ end
 local formatting = null_ls.builtins.formatting -- to setup formatters
 local diagnostics = null_ls.builtins.diagnostics -- to setup linters
 local code_actions = null_ls.builtins.code_actions -- gitsigns
+local completion = null_ls.builtins.completion
 
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
@@ -15,25 +16,42 @@ local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 null_ls.setup({
 	-- setup formatters & linters
 	sources = {
-		--  to disable file types use
-		--  "formatting.prettier.with({disabled_filetypes: {}})" (see null-ls docs)
-		-- code actions
-		code_actions.gitsigns,
-		code_actions.refactoring,
-		code_actions.gitrebase,
-        code_actions.eslint_d,
-		-- formatting
-		formatting.prettier,
-		formatting.sql_formatter,
-		formatting.stylua, -- lua formatter
-		formatting.isort,
-		formatting.black,
-		formatting.sqlfluff,
+		-- completion
+		completion.spell,
 
 		-- diagnostics
 		diagnostics.eslint_d,
-		-- diagnostics.flake8,
-		-- diagnostics.mypy,
+		diagnostics.actionlint,
+		diagnostics.staticcheck,
+		diagnostics.shellcheck,
+		diagnostics.codespell,
+		diagnostics.protolint,
+		diagnostics.cfn_lint,
+
+		-- code actions
+		code_actions.refactoring,
+
+		-- formatting
+		formatting.golines,
+		formatting.goimports,
+		formatting.prettier,
+		formatting.sqlfluff,
+		formatting.stylua,
+		formatting.isort.with({
+			extra_args = {
+				"--profile=black",
+				"--trailing-comma",
+				"--use-parentheses",
+				"--ensure-newline-before-comments",
+			},
+		}),
+		formatting.black.with({
+			extra_args = {
+				"--line-length",
+				"90",
+				"--fast",
+			},
+		}),
 	},
 	-- configure format on save
 	on_attach = function(current_client, bufnr)

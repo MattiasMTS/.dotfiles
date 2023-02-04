@@ -1,40 +1,15 @@
-local status1, cmp = pcall(require, "cmp")
-if not status1 then
-	print("cmp fail dadbod")
-end
+-- TODO look into table helpers -> sounds like sql snippets
+-- Default db icons
+vim.g.db_ui_show_database_icon = 1
+vim.g.db_ui_use_nerd_fonts = 1
+vim.g.db_ui_force_echo_notifications = 1
+-- drawer width when opened (default 40)
+vim.g.db_ui_winwidth = 50
 
-local status2, plenarypath = pcall(require, "plenary.path")
-if not status2 then
-	print("plenarypath fail dadbod")
-end
+-- use <leade>S instead of execute on s
+vim.g.db_ui_execute_on_save = 0
 
-local M = {}
+-- height of the result data view
+vim.opt.previewheight = 20
 
-local function db_completion()
-	cmp.setup.buffer({ sources = { { name = "vim-dadbod-completion" } } })
-end
-
-function M.setup()
-	vim.g.db_ui_save_location = vim.fn.stdpath("config") .. plenarypath.path.sep .. "db_ui"
-
-	vim.api.nvim_create_autocmd("FileType", {
-		pattern = {
-			"sql",
-		},
-		command = [[setlocal omnifunc=vim_dadbod_completion#omni]],
-	})
-
-	-- activate dadbod-cmp on these file types
-	vim.api.nvim_create_autocmd("FileType", {
-		pattern = {
-			"sql",
-			"mysql",
-			"plsql",
-		},
-		callback = function()
-			vim.schedule(db_completion)
-		end,
-	})
-end
-
-return M
+-- vim.g.sql_type_default = "pgsql"

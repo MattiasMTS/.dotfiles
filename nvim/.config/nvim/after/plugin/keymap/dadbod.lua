@@ -1,4 +1,3 @@
-local Remap = require("mattias.keymap")
-local nnoremap = Remap.nnoremap
-local telescope = require("telescope")
-local builtin = require("telescope.builtin")
+vim.keymap.set("n", "<leader>db", ":! ~/env_dadbod.sh <CR> :tab :DBUI <CR>") -- open up the UI
+vim.keymap.set("n", "<leader>dt", ":DBUIToggle <CR>") -- Toggle the sidebar
+vim.keymap.set("n", "<leader>dl", ":DBUILastQueryInfo <CR>") -- What did you send to the query?

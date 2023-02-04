@@ -74,6 +74,11 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
+  ["Comment.nvim"] = {
+    loaded = true,
+    path = "/Users/mattiassjodin/.local/share/nvim/site/pack/packer/start/Comment.nvim",
+    url = "https://github.com/numToStr/Comment.nvim"
+  },
   LuaSnip = {
     loaded = true,
     path = "/Users/mattiassjodin/.local/share/nvim/site/pack/packer/start/LuaSnip",
@@ -94,6 +99,11 @@ _G.packer_plugins = {
     path = "/Users/mattiassjodin/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp",
     url = "https://github.com/hrsh7th/cmp-nvim-lsp"
   },
+  ["cmp-nvim-lsp-signature-help"] = {
+    loaded = true,
+    path = "/Users/mattiassjodin/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp-signature-help",
+    url = "https://github.com/hrsh7th/cmp-nvim-lsp-signature-help"
+  },
   ["cmp-nvim-lua"] = {
     loaded = true,
     path = "/Users/mattiassjodin/.local/share/nvim/site/pack/packer/start/cmp-nvim-lua",
@@ -109,6 +119,11 @@ _G.packer_plugins = {
     path = "/Users/mattiassjodin/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
     url = "https://github.com/saadparwaiz1/cmp_luasnip"
   },
+  ["fidget.nvim"] = {
+    loaded = true,
+    path = "/Users/mattiassjodin/.local/share/nvim/site/pack/packer/start/fidget.nvim",
+    url = "https://github.com/j-hui/fidget.nvim"
+  },
   ["friendly-snippets"] = {
     loaded = true,
     path = "/Users/mattiassjodin/.local/share/nvim/site/pack/packer/start/friendly-snippets",
@@ -119,15 +134,25 @@ _G.packer_plugins = {
     path = "/Users/mattiassjodin/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",
     url = "https://github.com/lewis6991/gitsigns.nvim"
   },
+  harpoon = {
+    loaded = true,
+    path = "/Users/mattiassjodin/.local/share/nvim/site/pack/packer/start/harpoon",
+    url = "https://github.com/ThePrimeagen/harpoon"
+  },
+  ["indent-blankline.nvim"] = {
+    loaded = true,
+    path = "/Users/mattiassjodin/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim",
+    url = "https://github.com/lukas-reineke/indent-blankline.nvim"
+  },
+  ["lazygit.nvim"] = {
+    loaded = true,
+    path = "/Users/mattiassjodin/.local/share/nvim/site/pack/packer/start/lazygit.nvim",
+    url = "https://github.com/kdheepak/lazygit.nvim"
+  },
   ["lsp_extensions.nvim"] = {
     loaded = true,
     path = "/Users/mattiassjodin/.local/share/nvim/site/pack/packer/start/lsp_extensions.nvim",
     url = "https://github.com/nvim-lua/lsp_extensions.nvim"
-  },
-  ["lspkind-nvim"] = {
-    loaded = true,
-    path = "/Users/mattiassjodin/.local/share/nvim/site/pack/packer/start/lspkind-nvim",
-    url = "https://github.com/onsails/lspkind-nvim"
   },
   ["lspsaga.nvim"] = {
     loaded = true,
@@ -138,6 +163,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/mattiassjodin/.local/share/nvim/site/pack/packer/start/lualine.nvim",
     url = "https://github.com/hoob3rt/lualine.nvim"
+  },
+  ["markdown-preview.nvim"] = {
+    loaded = true,
+    path = "/Users/mattiassjodin/.local/share/nvim/site/pack/packer/start/markdown-preview.nvim",
+    url = "https://github.com/iamcco/markdown-preview.nvim"
   },
   ["mason-lspconfig.nvim"] = {
     loaded = true,
@@ -159,11 +189,6 @@ _G.packer_plugins = {
     path = "/Users/mattiassjodin/.local/share/nvim/site/pack/packer/start/neogen",
     url = "https://github.com/danymat/neogen"
   },
-  neoterm = {
-    loaded = true,
-    path = "/Users/mattiassjodin/.local/share/nvim/site/pack/packer/start/neoterm",
-    url = "https://github.com/kassio/neoterm"
-  },
   ["null-ls.nvim"] = {
     loaded = true,
     path = "/Users/mattiassjodin/.local/share/nvim/site/pack/packer/start/null-ls.nvim",
@@ -184,20 +209,25 @@ _G.packer_plugins = {
     path = "/Users/mattiassjodin/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
     url = "https://github.com/neovim/nvim-lspconfig"
   },
+  ["nvim-tree.lua"] = {
+    loaded = true,
+    path = "/Users/mattiassjodin/.local/share/nvim/site/pack/packer/start/nvim-tree.lua",
+    url = "https://github.com/nvim-tree/nvim-tree.lua"
+  },
   ["nvim-treesitter"] = {
     loaded = true,
     path = "/Users/mattiassjodin/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
     url = "https://github.com/nvim-treesitter/nvim-treesitter"
   },
-  ["nvim-treesitter-context"] = {
-    loaded = true,
-    path = "/Users/mattiassjodin/.local/share/nvim/site/pack/packer/start/nvim-treesitter-context",
-    url = "https://github.com/nvim-treesitter/nvim-treesitter-context"
-  },
   ["nvim-web-devicons"] = {
     loaded = true,
     path = "/Users/mattiassjodin/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
     url = "https://github.com/kyazdani42/nvim-web-devicons"
+  },
+  ["obsidian.nvim"] = {
+    loaded = true,
+    path = "/Users/mattiassjodin/.local/share/nvim/site/pack/packer/start/obsidian.nvim",
+    url = "https://github.com/epwalsh/obsidian.nvim"
   },
   ["packer.nvim"] = {
     loaded = true,
@@ -229,6 +259,16 @@ _G.packer_plugins = {
     path = "/Users/mattiassjodin/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
   },
+  ["todo-comments.nvim"] = {
+    loaded = true,
+    path = "/Users/mattiassjodin/.local/share/nvim/site/pack/packer/start/todo-comments.nvim",
+    url = "https://github.com/folke/todo-comments.nvim"
+  },
+  ["toggleterm.nvim"] = {
+    loaded = true,
+    path = "/Users/mattiassjodin/.local/share/nvim/site/pack/packer/start/toggleterm.nvim",
+    url = "https://github.com/akinsho/toggleterm.nvim"
+  },
   ["tokyonight.nvim"] = {
     loaded = true,
     path = "/Users/mattiassjodin/.local/share/nvim/site/pack/packer/start/tokyonight.nvim",
@@ -244,11 +284,6 @@ _G.packer_plugins = {
     path = "/Users/mattiassjodin/.local/share/nvim/site/pack/packer/start/vim-be-good",
     url = "https://github.com/ThePrimeagen/vim-be-good"
   },
-  ["vim-commentary"] = {
-    loaded = true,
-    path = "/Users/mattiassjodin/.local/share/nvim/site/pack/packer/start/vim-commentary",
-    url = "https://github.com/tpope/vim-commentary"
-  },
   ["vim-dadbod"] = {
     loaded = true,
     path = "/Users/mattiassjodin/.local/share/nvim/site/pack/packer/start/vim-dadbod",
@@ -263,11 +298,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/mattiassjodin/.local/share/nvim/site/pack/packer/start/vim-dadbod-ui",
     url = "https://github.com/MattiasMTS/vim-dadbod-ui"
-  },
-  ["vim-illuminate"] = {
-    loaded = true,
-    path = "/Users/mattiassjodin/.local/share/nvim/site/pack/packer/start/vim-illuminate",
-    url = "https://github.com/RRethy/vim-illuminate"
   }
 }
 
