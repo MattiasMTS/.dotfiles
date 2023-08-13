@@ -1,0 +1,115 @@
+return {
+  -- {
+  --   "scalameta/nvim-metals",
+  --   event = { "BufReadPre", "BufNewFile" },
+  --   ft = { "scala", "sbt", "java" },
+  --   config = function()
+  --     local config = require("metals").bare_config()
+  --     local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
+  --     local lsp_group = vim.api.nvim_create_augroup("lsp", { clear = true })
+  --
+  --     local on_attach = function(client, bufnr)
+  --       -- Mappings.
+  --       -- See `:help vim.lsp.*` for documentation on any of the below functions
+  --       -- vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
+  --
+  --       vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
+  --         border = "rounded",
+  --         title = "Doc Hover",
+  --         style = "minimal",
+  --         focusable = true,
+  --       })
+  --
+  --       local bufopts = { noremap = true, silent = true, buffer = bufnr }
+  --
+  --       require("lsp-inlayhints").on_attach(client, bufnr)
+  --       vim.keymap.set("n", "<leader>cd", vim.diagnostic.open_float)
+  --       vim.keymap.set("n", "[d", vim.diagnostic.goto_prev)
+  --       vim.keymap.set("n", "]d", vim.diagnostic.goto_next)
+  --       vim.keymap.set("n", "gD", vim.lsp.buf.declaration, bufopts)
+  --       vim.keymap.set("n", "gd", "<cmd>Telescope lsp_definitions<CR>zz", bufopts)
+  --       vim.keymap.set("n", "K", vim.lsp.buf.hover, bufopts)
+  --       vim.keymap.set("n", "gK", vim.lsp.buf.signature_help, bufopts)
+  --       vim.keymap.set("n", "gI", "<cmd>Telescope lsp_implementations<cr>")
+  --       vim.keymap.set("n", "gt", "<cmd>Telescope lsp_type_definitions<cr>")
+  --       vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, bufopts)
+  --       vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, bufopts)
+  --       vim.keymap.set("n", "<cmd>LspInfo<cr>", vim.lsp.buf.code_action, bufopts)
+  --       vim.keymap.set("n", "gr", require("telescope.builtin").lsp_references, bufopts)
+  --
+  --       vim.keymap.set("n", "<leader>cf", function()
+  --         vim.lsp.buf.format({ async = true })
+  --       end, bufopts)
+  --     end
+  --
+  --     config.tvp = {
+  --       icons = {
+  --         enabled = true,
+  --       },
+  --     }
+  --
+  --     --metals_config.cmd = { "cs", "launch", "tech.neader:langoustine-tracer_3:0.0.18", "--", "metals" }
+  --     config.settings = {
+  --       --disabledMode = true,
+  --       --bloopVersion = "1.5.3-15-49c6986e-20220816-2002",
+  --       showImplicitArguments = true,
+  --       showImplicitConversionsAndClasses = true,
+  --       showInferredType = true,
+  --       enableSemanticHighlighting = true,
+  --       -- fallbackScalaVersion = "2.13.10",
+  --       -- serverVersion = "latest.snapshot",
+  --       --serverVersion = "0.11.2+74-7a6a65a7-SNAPSHOT",
+  --       --serverVersion = "0.11.11-SNAPSHOT",
+  --       --testUserInterface = "Test Explorer",
+  --       excludedPackages = { "akka.actor.typed.javadsl", "com.github.swagger.akka.javadsl" },
+  --     }
+  --
+  --     config.init_options.statusBarProvider = "on"
+  --     config.capabilities = capabilities
+  --
+  --     config.on_attach = function(client, bufnr)
+  --       on_attach(client, bufnr)
+  --
+  --       vim.keymap.set("v", "K", require("metals").type_of_range)
+  --
+  --       vim.keymap.set("n", "<leader>ws", function()
+  --         require("metals").hover_worksheet({ border = "single" })
+  --       end)
+  --
+  --       vim.keymap.set("n", "<leader>tt", require("metals.tvp").toggle_tree_view)
+  --
+  --       vim.keymap.set("n", "<leader>tr", require("metals.tvp").reveal_in_tree)
+  --
+  --       vim.keymap.set("n", "<leader>mc", require("metals").commands)
+  --
+  --       vim.keymap.set("n", "<leader>mts", function()
+  --         require("metals").toggle_setting("showImplicitArguments")
+  --       end)
+  --       vim.api.nvim_create_autocmd("CursorHold", {
+  --         callback = vim.lsp.buf.document_highlight,
+  --         buffer = bufnr,
+  --         group = lsp_group,
+  --       })
+  --       vim.api.nvim_create_autocmd("CursorMoved", {
+  --         callback = vim.lsp.buf.clear_references,
+  --         buffer = bufnr,
+  --         group = lsp_group,
+  --       })
+  --       vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost" }, {
+  --         callback = vim.lsp.codelens.refresh,
+  --         buffer = bufnr,
+  --         group = lsp_group,
+  --       })
+  --     end
+  --     local nvim_metals_group = vim.api.nvim_create_augroup("nvim-metals", { clear = true })
+  --     require("metals").initialize_or_attach(config)
+  --     vim.api.nvim_create_autocmd("FileType", {
+  --       pattern = { "scala", "sbt", "java" },
+  --       callback = function()
+  --         require("metals").initialize_or_attach(config)
+  --       end,
+  --       group = nvim_metals_group,
+  --     })
+  --   end,
+  -- },
+}

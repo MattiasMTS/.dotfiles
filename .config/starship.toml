@@ -1,0 +1,84 @@
+# Get editor completions based on the config schema
+"$schema" = 'https://starship.rs/config-schema.json'
+
+# Inserts a blank line between shell prompts
+add_newline = false
+
+# Prompt Format
+format = """
+$username\
+$hostname\
+$localip\
+$shlvl\
+$singularity\
+$kubernetes\
+$directory\
+$vcsh\
+$fossil_branch\
+$git_branch\
+$git_commit\
+$git_state\
+$git_metrics\
+$git_status\
+$hg_branch\
+$pijul_channel\
+$docker_context\
+$package\
+\
+$buf\
+$nix_shell\
+$conda\
+$meson\
+$spack\
+$memory_usage\
+$aws\
+$gcloud\
+$openstack\
+$azure\
+$env_var\
+$crystal\
+$custom\
+$sudo\
+$cmd_duration\
+$jobs\
+$battery\
+$time\
+$status\
+$os\
+$container\
+$shell\
+$character
+"""
+
+# 
+# Module Configurations
+#
+[aws]
+format = '([$symbol($profile)]($style) )'
+style = 'gold'
+symbol = ''
+
+[aws.profile_aliases]
+bs-cb-dev = 'dev'
+bs-cb-prod = 'prod'
+
+[character]
+success_symbol = '[»](muted)'
+error_symbol = '[»](bold red)'
+vimcmd_symbol = "[«](foam)"
+
+[directory]
+truncation_length = 8
+truncate_to_repo = false
+style = "pine"
+
+# [git_branch]
+# format = "([$symbol($branch)]($style) )"
+# symbol = '[±](foam)'
+#
+# [git_status]
+# format = "([$all_status$ahead_behind]($style) )"
+# style = "foam"
+# untracked = ""
+# stashed = "≡"
+#

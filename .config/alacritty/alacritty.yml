@@ -1,0 +1,137 @@
+live_config_reload: true
+alt_send_esc: false
+env:
+  # TERM variable
+  #
+  # This value is used to set the `$TERM` environment variable for
+  # each instance of Alacritty. If it is not present, alacritty will
+  # check the local terminfo database and use `alacritty` if it is
+  # available, otherwise `xterm-256color` is used.
+  #TERM: alacritty
+  TERM: xterm-256color
+
+window:
+  dimensions:
+    columns: 160
+    lines: 80
+  opacity: 1.0
+  padding:
+    x: 4
+    y: 4
+  dynamic_padding: false
+  dynamic_title: true
+  # decorations: buttonless
+  startup_mode: Maximized
+
+scrolling:
+  history: 65536
+  multiplier: 3
+
+tabspaces: 4
+# draw_bold_text_with_bright_colors: true
+custom_cursor_colors: false
+
+mouse_bindings:
+  - { mouse: Middle, action: PasteSelection }
+
+mouse:
+  double_click: { threshold: 300 }
+  triple_click: { threshold: 300 }
+
+# When true, bold text is drawn using the bright variant of colors.
+draw_bold_text_with_bright_colors: false
+
+# Font configuration (changes require restart)
+font:
+  normal:
+    family: JetBrainsMono Nerd Font
+    # Style can be specified to pick a specific face.
+    style: Regular
+
+  # The bold font face
+  bold:
+    family: JetBrainsMono Nerd Font
+    # Style can be specified to pick a specific face.
+    style: Bold
+
+  # The italic font face
+  italic:
+    family: JetBrainsMono Nerd Font
+
+  # Point size of the font
+  size: 14
+  apple_font_smoothing: true
+  scale_with_dpi: true
+
+  # Offset is the extra space around each character. offset.y can be thought of
+  # as modifying the linespacing, and offset.x as modifying the letter spacing.
+  offset:
+    x: 0
+    y: 0
+
+  # Glyph offset determines the locations of the glyphs within their cells with
+  # the default being at the bottom. Increase the x offset to move the glyph to
+  # the right, increase the y offset to move the glyph upward.
+  glyph_offset:
+    x: 0
+    y: 0
+  # Scale the font size based on the monitor's DPI. This will lead to bigger text on HiDPI
+  # screens and make reading text a little easier.
+  #scale_with_dpi: true
+
+  # Should display the render timer
+debug.render_timer: false
+
+import:
+  - ~/.config/alacritty/themes/themes/taerminal.yaml
+
+# colors:
+#   name: Default (dark)
+#   primary:
+#     # background: "#1c1d1d"
+#     # background: "#141e31"
+#     # background: "#002933"
+#     # background: "#061b25" # pretty nice one
+#     background: "#161b22"
+#     # background: "#14191f"
+#     # background: "0x222436"
+#     foreground: "#d0d0d0"
+#   cursor:
+#     text: "#151515"
+#     cursor: "#d0d0d0"
+#   normal:
+#     black: "#151515"
+#     red: "#ac4142"
+#     green: "#90a959"
+#     yellow: "#f4bf75"
+#     blue: "#6a9fb5"
+#     magenta: "#aa759f"
+#     cyan: "#75b5aa"
+#     white: "#d0d0d0"
+#   bright:
+#     black: "#505050"
+#     red: "#ac4142"
+#     green: "#90a959"
+#     yellow: "#f4bf75"
+#     blue: "#6a9fb5"
+#     magenta: "#aa759f"
+#     cyan: "#75b5aa"
+#     white: "#f5f5f5"
+#
+#   indexed_colors:
+#     - { index: 16, color: "0xF8BD96" }
+#     - { index: 17, color: "0xF5E0DC" }
+#
+# selection:
+#   semantic_escape_chars: ',│`|:"'' ()[]{}<>'
+#
+# # Style of the cursor
+# #
+# # Values for 'cursor_style':
+# # - Block
+# # - Underline
+# # - Beam
+# cursor.style: Block
+#
+# # Live config reload (changes require restart)
+# theme: Default.dark
