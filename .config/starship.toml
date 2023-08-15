@@ -58,10 +58,6 @@ format = '([$symbol($profile)]($style) )'
 style = 'gold'
 symbol = ''
 
-[aws.profile_aliases]
-bs-cb-dev = 'dev'
-bs-cb-prod = 'prod'
-
 [character]
 success_symbol = '[»](muted)'
 error_symbol = '[»](bold red)'
