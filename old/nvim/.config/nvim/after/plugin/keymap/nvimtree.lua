@@ -1,5 +1,0 @@
-vim.keymap.set("n", "<leader>ew", "<cmd>NvimTreeToggle<CR>")
-vim.keymap.set("n", "<leader>ef", "<cmd>NvimTreeFindFile<CR>")
-vim.keymap.set("n", "<leader>ec", "<cmd>NvimTreeCollapse<CR>")
-vim.keymap.set("n", "<leader>er", "<cmd>NvimTreeRefresh<CR>")
-vim.keymap.set("n", "<leader>eb", "<cmd>NvimTreeClipboard<CR>")

@@ -1,9 +1,0 @@
--- -- TODO add vnoremap to marking multiple tests in the summary toggle
--- vim.keymap.set("n", "<leader>fn", ":lua require('neotest').summary.open()<CR>", { silent = true }) -- open sidebar overview
--- vim.keymap.set("n", "<leader><leader>fn", ":lua require('neotest').summary.close()<CR>", { silent = true }) -- close sidebar overview
--- vim.keymap.set("n", "<leader>fc", ":lua require('neotest').run.stop()<CR>", { silent = true }) -- stop nearest test
--- vim.keymap.set("n", "<leader>fs", ":lua require('neotest').run.run()<CR>", { silent = true }) -- run nearest test
--- vim.keymap.set("n", "<leader>ff", ":lua require('neotest').run.run({ vim.fn.expand('%') })<CR>", { silent = true }) -- run entire file
--- vim.keymap.set("n", "<leader>fa", ":lua require('neotest').run.run({ suite=true })<CR>", { silent = true }) -- run all tests
--- vim.keymap.set("n", "<leader>fo", ":lua require('neotest').output.open({ enter=true })<CR>", { silent = true }) -- enter output of tests
--- -- TODO  add run_marked + clear marked for summary

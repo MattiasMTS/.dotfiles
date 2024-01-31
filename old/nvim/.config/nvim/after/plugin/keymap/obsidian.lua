@@ -1,7 +1,0 @@
-vim.keymap.set("n", "<leader>od", ":ObsidianToday<CR>")
-vim.keymap.set("n", "<leader>op", ":ObsidianYesterday<CR>")
-vim.keymap.set("n", "<leader>on", ":ObsidianNew ")
-vim.keymap.set("n", "<leader>of", ":ObsidianSearch<CR>")
-vim.keymap.set("v", "<leader>ol", ":ObsidianLink<CR>")
-vim.keymap.set("v", "<leader><leader>ol", ":ObsidianLinkNew<CR>")
-vim.keymap.set("v", "<leader>ob", ":ObsidianBacklinks<CR>")
