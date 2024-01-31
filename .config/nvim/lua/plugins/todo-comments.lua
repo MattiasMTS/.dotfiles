@@ -1,14 +1,49 @@
 return {
+  -- nice trouble highlighting of Diagnostics
+  {
+    "folke/trouble.nvim",
+    enabled = true,
+    opts = {
+      use_diagnostic_signs = true,
+    },
+    keys = {
+      -- stylua: ignore
+      { "<leader>tt", function () require("trouble").toggle() end, desc = "Toggle Trouble", mode ="n", silent = true },
+      {
+        "[d",
+        function()
+          if require("trouble").is_open() then
+            require("trouble").previous({ skip_groups = true, jump = true })
+          else
+            require("trouble").open()
+            require("trouble").previous({ skip_groups = true, jump = true })
+          end
+        end,
+        desc = "Previous trouble/quickfix item",
+      },
+      {
+        "]d",
+        function()
+          if require("trouble").is_open() then
+            require("trouble").next({ skip_groups = true, jump = true })
+          else
+            require("trouble").open()
+            require("trouble").next({ skip_groups = true, jump = true })
+          end
+        end,
+        desc = "Next trouble/quickfix item",
+      },
+    },
+  },
+  -- nice todo highlighting
   {
     "folke/todo-comments.nvim",
     cmd = { "TodoTrouble", "TodoTelescope" },
-    -- event = { "BufReadPost", "BufNewFile" },
-  -- stylua: ignore
+    -- stylua: ignore
     keys = {
       { "]t",         function() require("todo-comments").jump_next() end, desc = "Next todo comment" },
       { "[t",         function() require("todo-comments").jump_prev() end, desc = "Previous todo comment" },
-      { "<leader>tq", "<cmd>TodoQuickFix<cr>",                              desc = "Todo (quickFix)" },
-      { "<leader>tt", "<cmd>TodoTelescope<cr>",                            desc = "Todo" },
+      { "<leader>tq", "<cmd>TodoQuickFix<cr>", desc = "Todo (quickFix)" },
     },
     opts = {
       signs = true, -- show icons in the signs column

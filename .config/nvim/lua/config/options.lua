@@ -1,43 +1,47 @@
 -- -- Default options that are always set:
 -- https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/options.lua
+-- therefore some of the ones below are commented out
 
 local opt = vim.opt
 
+-- vim.g.autoformat = true -- lazyvim enabled
+
 -- mouse
 opt.mouse = "a" -- mouse allowed in all modes
-opt.selectmode = "mouse,key"
+-- opt.selectmode = "mouse,key"
 --
 vim.scriptencoding = "utf-8"
 opt.encoding = "utf-8"
 opt.fileencoding = "utf-8"
 
 -- winbar
--- opt.winbar = "%F %m"
+opt.winbar = "%F %m"
+-- opt.winbar = "%f"
 
-opt.title = true
+-- opt.title = true
 opt.hlsearch = true -- highlight search result, clear C-l
 opt.incsearch = true -- look incremental
 opt.swapfile = false
-opt.backup = false -- use .nvim cache backup?
-opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
-opt.undofile = true
+-- opt.backup = false -- use .nvim cache backup?
+-- opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
+-- opt.undofile = true -- lazyvim enabled
 opt.showcmd = true
 
 -- Give more space for displaying messages.
 opt.cmdheight = 1
-opt.laststatus = 0 -- default 2
-opt.inccommand = "nosplit" -- preview incremental substitute
-opt.ignorecase = true
-opt.list = true -- show some invisible characters (tabs, spaces..)
+-- opt.laststatus = 0 -- default 2
+-- opt.inccommand = "nosplit" -- preview incremental substitute -- lazyvim
+-- opt.ignorecase = true -- lazyvim
+-- opt.list = true -- show some invisible characters (tabs, spaces..) -- lazyvim
 
 -- numbers on the left
-opt.number = true
-opt.relativenumber = true
-opt.pumblend = 10 -- popup blend
-opt.pumheight = 10 -- Maximum entries in popup group
+opt.number = true -- lazyvim enabled
+-- opt.relativenumber = true -- lazyvim enabled
+-- opt.pumblend = 10 -- popup blend
+-- opt.pumheight = 10 -- Maximum entries in popup group
 --
 opt.errorbells = false
-opt.showmode = false -- status bar displayed using lualine
+opt.showmode = false -- status bar displayed using lualine -- lazyvim
 
 -- -- indent and formatting
 -- -- opt.softtabstop = 4
@@ -50,25 +54,23 @@ opt.showmode = false -- status bar displayed using lualine
 -- opt.formatoptions = "jcroqlnt" -- tcqj
 
 -- grep
-opt.grepformat = "%f:%l:%c:%m"
-opt.grepprg = "rg --vimgrep"
+-- opt.grepformat = "%f:%l:%c:%m" -- lazyvim enabled
+-- opt.grepprg = "rg --vimgrep" -- lazyvim enabled
 
 -- extras
 opt.backspace = "start,eol,indent"
 opt.path:append({ "**" }) -- finding files, search down into subfolders
-opt.clipboard = "unnamedplus" -- allow copy from vim to clipboard
-opt.completeopt = "menu,menuone,noselect"
-
--- opt.showmatch = true
--- opt.wrap = false
+-- opt.clipboard = "unnamedplus" -- allow copy from vim to clipboard lazyvim
+-- opt.completeopt = "menu,menuone,noselect" -- lazyvim enabled
 
 -- Highlight stuff & cursor
-opt.cursorline = true
-opt.termguicolors = true
+opt.cursorline = false
+-- opt.termguicolors = true -- lazyvim enabled
 opt.guicursor = ""
 
 opt.scrolloff = 10
-opt.smoothscroll = true
+-- if vim version is 10 or higher, apply the code below:
+-- opt.smoothscroll = true
 opt.signcolumn = "yes"
 opt.isfname:append("@-@")
 
@@ -82,20 +84,3 @@ opt.colorcolumn = "80"
 
 -- language
 opt.spelllang = { "en" }
---
--- cmd:
--- opt.wildmode = "longest:full,full" -- completion cli
---
--- -- floating windows
--- -- vim.api.nvim_open_win(0, false, { relative = "win", row = 3, col = 3, width = 12, height = 3, border = "solid" })
---
--- opt.splitkeep = "screen"
--- -- -- Don't pass messages to |ins-completion-menu|.
--- opt.shortmess:append("c")
--- -- opt.shortmess:append({ C = true })
--- -- if vim.fn.has("nvim-0.9.0") == 1 then
--- --   opt.splitkeep = "screen"
--- --   -- -- Don't pass messages to |ins-completion-menu|.
--- --   opt.shortmess:append("c")
--- --   -- opt.shortmess:append({ C = true })
--- -- end

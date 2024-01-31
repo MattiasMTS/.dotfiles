@@ -1,6 +1,7 @@
 return {
   {
     "akinsho/toggleterm.nvim",
+    enabled = false,
     event = "VeryLazy",
     version = "*",
     opts = {
@@ -11,7 +12,7 @@ return {
         if term.direction == "horizontal" then
           return 25
         elseif term.direction == "vertical" then
-          return vim.o.columns * 0.4
+          return vim.o.columns * 0.50
         end
       end,
       hide_numbers = true, -- hide the number column in toggleterm buffers
@@ -22,47 +23,18 @@ return {
       direction = "horizontal",
       shell = "zsh",
     },
-    keys = function()
-      return {
-        {
-          "tn",
-          "<cmd>ToggleTerm <CR>",
-          desc = "open latest toggleterm",
-          silent = true,
-          mode = "n",
-        },
-        {
-          "s",
-          "<cmd>ToggleTermSendCurrentLine ipython<CR>",
-          desc = "Send current line to toggleterm",
-          -- noremap = true,
-          silent = true,
-          expr = false,
-          mode = "n",
-        },
-        {
-          "s",
-          "<cmd>:'<,'>ToggleTermSendVisualSelection ipython<CR>",
-          desc = "Send current visual line to toggleterm",
-          -- noremap = true,
-          silent = true,
-          expr = false,
-          mode = "v",
-        },
-      }
-    end,
     config = function(_, opts)
       require("toggleterm").setup(opts)
 
       local Terminal = require("toggleterm.terminal").Terminal
 
-      -- IPython repl
-      local ipython = Terminal:new({
-        cmd = "ipython --autoindent --nosep --pprint --quick --autocall=0",
-        hidden = true,
-        direction = "vertical",
-        start_in_insert = false,
-      })
+      -- -- IPython repl
+      -- local ipython = Terminal:new({
+      --   cmd = "ipython --autoindent --nosep --pprint --quick --autocall=0",
+      --   hidden = true,
+      --   direction = "vertical",
+      --   start_in_insert = false,
+      -- })
 
       -- Monitor resources
       local btop = Terminal:new({
@@ -124,12 +96,74 @@ return {
         desc = "toggleterm: btop",
       })
 
-      -- ipython bindings
-      vim.keymap.set("n", "<leader>tp", function()
-        ipython:toggle()
-      end, {
-        desc = "toggleterm: IPython REPL",
+      -- -- ipython bindings
+      -- vim.keymap.set("n", "<leader>tp", function()
+      --   ipython:toggle()
+      -- end, {
+      --   desc = "toggleterm: IPython REPL",
+      -- })
+    end,
+    keys = function()
+      require("toggleterm").setup(opts)
+
+      local Terminal = require("toggleterm.terminal").Terminal
+
+      -- -- IPython repl
+      local ipython = Terminal:new({
+        cmd = "ipython --autoindent --nosep --pprint --quick --autocall=0",
+        hidden = true,
+        direction = "vertical",
+        start_in_insert = false,
       })
+
+      return {
+        {
+          "tp",
+          function()
+            ipython:toggle()
+            -- require("toggleterm.terminal").Terminal
+            --   :new({
+            --     cmd = "ipython --autoindent --nosep --pprint --quick --autocall=0",
+            --     hidden = true,
+            --     direction = "vertical",
+            --     start_in_insert = false,
+            --   })
+            --   :toggle()
+          end,
+          desc = "Open ipython REPL",
+          silent = true,
+          mode = "n",
+        },
+        {
+          "tn",
+          "<cmd>ToggleTerm <CR>",
+          desc = "open latest toggleterm",
+          silent = true,
+          mode = "n",
+        },
+        {
+          "<leader>s",
+          "<cmd>ToggleTermSendCurrentLine ipython<CR>",
+          desc = "Send current line to toggleterm",
+          -- noremap = true,
+          silent = true,
+          expr = false,
+          mode = "n",
+        },
+        {
+          "<leader>s",
+          ":'<,'>:ToggleTermSendVisualSelection ipython<CR>",
+          -- function()
+          --   send_lines_to_ipython()
+          -- end,
+          -- "<cmd>ToggleTermSendVisualSelection ipython<CR>",
+          desc = "Send current visual line to toggleterm",
+          -- noremap = true,
+          silent = true,
+          expr = false,
+          mode = "v",
+        },
+      }
     end,
   },
 }

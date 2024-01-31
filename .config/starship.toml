@@ -2,79 +2,26 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
 # Inserts a blank line between shell prompts
-add_newline = false
-
-# Prompt Format
-format = """
-$username\
-$hostname\
-$localip\
-$shlvl\
-$singularity\
-$kubernetes\
-$directory\
-$vcsh\
-$fossil_branch\
-$git_branch\
-$git_commit\
-$git_state\
-$git_metrics\
-$git_status\
-$hg_branch\
-$pijul_channel\
-$docker_context\
-$package\
-\
-$buf\
-$nix_shell\
-$conda\
-$meson\
-$spack\
-$memory_usage\
-$aws\
-$gcloud\
-$openstack\
-$azure\
-$env_var\
-$crystal\
-$custom\
-$sudo\
-$cmd_duration\
-$jobs\
-$battery\
-$time\
-$status\
-$os\
-$container\
-$shell\
-$character
-"""
-
-# 
-# Module Configurations
-#
-[aws]
-format = '([$symbol($profile)]($style) )'
-style = 'gold'
-symbol = ''
-
-[character]
-success_symbol = '[»](muted)'
-error_symbol = '[»](bold red)'
-vimcmd_symbol = "[«](foam)"
+add_newline = true
 
 [directory]
 truncation_length = 8
 truncate_to_repo = false
-style = "pine"
+truncation_symbol = "…/"
 
-# [git_branch]
-# format = "([$symbol($branch)]($style) )"
-# symbol = '[±](foam)'
-#
-# [git_status]
-# format = "([$all_status$ahead_behind]($style) )"
-# style = "foam"
-# untracked = ""
-# stashed = "≡"
-#
+[aws]
+format = 'on [$symbol($profile )(\($region\) )]($style)'
+style = 'bold blue'
+symbol = "  "
+
+[kubernetes]
+symbol = '☸'
+disabled = false
+detect_files = ['k8s', 'Dockerfile']
+detect_extensions = ['yaml']
+format = '[$symbol$context( \($namespace\))]($style) '
+
+[character]
+success_symbol = '[»](muted)'
+error_symbol = '[!](bold red)'
+vimcmd_symbol = "[«](foam)"

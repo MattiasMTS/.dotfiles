@@ -1,8 +1,9 @@
+local go_files = { "go", "go.mod", "go.sum" }
 return {
   {
     "olexsmir/gopher.nvim",
-    -- event = "InsertEnter",
-    ft = { "go" },
+    enabled = true,
+    ft = go_files,
     build = function()
       vim.cmd([[silent! GoInstallDeps]])
     end,
@@ -16,8 +17,8 @@ return {
   },
   {
     "ray-x/go.nvim",
-    -- event = { "CmdlineEnter" },
-    ft = { "go", "gomod" },
+    enabled = true,
+    ft = go_files,
     opts = {
       lsp_inlay_hints = {
         enable = false,
@@ -26,6 +27,8 @@ return {
     config = function(_, opts)
       require("go").setup(opts)
     end,
-    build = ':lua require("go.install").update_all_sync()', -- if you need to install/update all binaries
+    build = function()
+      require("go.install").update_all_sync()
+    end,
   },
 }
