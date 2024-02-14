@@ -9,6 +9,18 @@ vim.api.nvim_create_autocmd("BufWritePre", {
   end,
 })
 
+vim.api.nvim_create_autocmd("VimEnter", {
+  desc = "Auto select virtualenv Nvim open",
+  pattern = "*",
+  once = true,
+  callback = function()
+    local venv = vim.fn.findfile("pyproject.toml", vim.fn.getcwd() .. ";")
+    if venv ~= "" then
+      require("venv-selector").retrieve_from_cache()
+    end
+  end,
+})
+
 -- Fix conceallevel for json & help files
 vim.api.nvim_create_autocmd({ "FileType" }, {
   pattern = { "json", "jsonc" },
@@ -38,17 +50,3 @@ vim.api.nvim_create_autocmd("FileType", {
   desc = "terraform/hcl commentstring configuration",
   command = "setlocal commentstring=#\\ %s",
 })
-
--- remember last venv selected per repo/workspace
--- vim.api.nvim_create_autocmd({ "VimEnter" }, {
---   pattern = "*.py",
---   callback = function()
---     local is_gitrepo = vim.fn.finddir(".git", ".;")
---     local is_pyproject = (vim.fn.findfile(vim.fn.fnamemodify(is_gitrepo, ":h") .. "/pyproject.toml") ~= nil)
---     if is_pyproject then
---       local env = io.popen("poetry env list --full-path | awk '/Activated/ {print $1}'"):read()
---       vim.g.python3_host_prog = env
---     end
---   end,
---   group = python,
--- })

@@ -67,6 +67,7 @@ opt.path:append({ "**" }) -- finding files, search down into subfolders
 opt.cursorline = false
 -- opt.termguicolors = true -- lazyvim enabled
 opt.guicursor = ""
+-- opt.guicursor = "n-v-c:blinkon250-blinkoff250"
 
 opt.scrolloff = 10
 -- if vim version is 10 or higher, apply the code below:

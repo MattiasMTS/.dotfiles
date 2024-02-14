@@ -11,21 +11,40 @@ return {
     build = "Copilot auth",
     event = { "InsertEnter", "LspAttach" },
   },
+  -- better function signature highlight then nvim-cmp-lsp-signature
+  {
+    "ray-x/lsp_signature.nvim",
+    event = "VeryLazy",
+    opts = {
+      bind = true, -- This is mandatory, otherwise border config won't get registered.
+      fix_pos = true, -- set to true, the floating window will not auto-close until finish all parameters
+      hint_prefix = "",
+      max_width = 120,
+      doc_lines = 0,
+      handler_opts = {
+        border = "rounded", -- double, rounded, single, shadow, none, or a table of borders
+      },
+    },
+    config = function(_, opts)
+      require("lsp_signature").setup(opts)
+    end,
+  },
   {
     "hrsh7th/nvim-cmp",
     dependencies = {
       { "onsails/lspkind-nvim" },
       { "hrsh7th/cmp-emoji" },
       { "hrsh7th/cmp-nvim-lua" },
-      { "hrsh7th/cmp-nvim-lsp-signature-help" },
-      {
-        "cmp-nvim-convcommits",
-        dev = true,
-        enabled = false,
-      },
       {
         "cmp-dbee",
         enabled = true,
+        ft = "sql",
+        dev = true,
+        opts = {},
+      },
+      {
+        "cmp-dbt",
+        enabled = false,
         ft = "sql",
         dev = true,
         opts = {},
@@ -40,10 +59,10 @@ return {
       })
 
       local sources = {
-        { name = "nvim_lsp_signature_help" },
         { name = "nvim_lua" },
-        { name = "emoji" },
         { name = "cmp-dbee" },
+        { name = "cmp-dbt" },
+        { name = "emoji" },
       }
       for _, source in ipairs(sources) do
         table.insert(opts.sources, source)
@@ -56,7 +75,7 @@ return {
             nvim_lsp = "[LSP]",
             nvim_lua = "[Lua]",
             emoji = "[Emoji]",
-            cmp_dbee = "[DB]",
+            ["cmp-dbee"] = "[DB]",
             path = "[Path]",
             buffer = "[Buffer]",
           })[entry.source.name]

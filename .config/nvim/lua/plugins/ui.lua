@@ -7,14 +7,19 @@ return {
   { "folke/neoconf.nvim", enabled = false },
   { "folke/persistence.nvim", enabled = true },
   { "SmiteshP/nvim-navic", enabled = true },
+  { "folke/flash.nvim", enabled = false },
   {
     "nvimdev/dashboard-nvim",
     enabled = true,
   },
   {
     "nvim-lualine/lualine.nvim",
+    -- dependencies = {
+    --   { "linrongbin16/lsp-progress.nvim" },
+    -- },
     enabled = true,
     opts = function(_, opts)
+      -- table.insert(opts.sections.lualine_x, 2, require("lsp-progress").progress)
       -- add metals_status if metals is loaded
       local ok, _ = pcall(require, "metals")
       if ok then

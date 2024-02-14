@@ -39,10 +39,12 @@ require("lazy").setup({
     -- { import = "lazyvim.plugins.extras.lang.rust" },
     { import = "lazyvim.plugins.extras.lang.json" },
     { import = "lazyvim.plugins.extras.lang.yaml" },
-    -- { import = "lazyvim.plugins.extras.lang.python" }, -- venv selector etc
-    { import = "lazyvim.plugins.extras.lang.python-semshi" }, -- experimential semantic highlights in python
+    -- venv selector instead of doing poetry shell
+    { import = "lazyvim.plugins.extras.lang.python" },
+    -- experimential semantic highlights in python
+    { import = "lazyvim.plugins.extras.lang.python-semshi" },
     { import = "lazyvim.plugins.extras.lang.docker" },
-    { import = "lazyvim.plugins.extras.lang.terraform" },
+    -- { import = "lazyvim.plugins.extras.lang.terraform" },
     { import = "lazyvim.plugins.extras.lang.java" },
     { import = "lazyvim.plugins.extras.lang.typescript" },
     { import = "lazyvim.plugins.extras.lang.markdown" },
@@ -52,6 +54,8 @@ require("lazy").setup({
 
     -- editor.lua
     { import = "lazyvim.plugins.extras.editor.symbols-outline" },
+    -- aerial replaced by symbols-outline because archived
+    -- { import = "lazyvim.plugins.extras.editor.aerial" },
     { import = "lazyvim.plugins.extras.editor.navic" },
 
     -- formatting
@@ -92,9 +96,11 @@ require("lazy").setup({
     rtp = {
       disabled_plugins = {
         "gzip",
-        -- "matchit",
-        -- "matchparen",
-        -- "netrwPlugin",
+        -- comment to enable file-tree
+        "matchit",
+        "matchparen",
+        "netrwPlugin",
+        --
         "tarPlugin",
         "tohtml",
         "tutor",

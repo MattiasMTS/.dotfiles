@@ -1,7 +1,7 @@
 return {
   {
     "nvim-neo-tree/neo-tree.nvim",
-    enabled = false,
+    enabled = true,
     opts = {
       window = {
         width = 50,
@@ -12,18 +12,20 @@ return {
       },
       filesystem = {
         filtered_items = {
-          hide_dotfiles = false,
-          hide_gitignored = false,
+          visible = true,
+          -- hide_dotfiles = false,
+          -- hide_gitignored = false,
         },
         follow_current_file = {
-          enabled = false,
-          leave_dirs_open = false,
+          enabled = true,
+          -- leave_dirs_open = false,
         },
       },
     },
   },
   {
     "stevearc/oil.nvim",
+    enabled = false,
     opts = {
       view_options = {
         show_hidden = true,

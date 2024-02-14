@@ -14,6 +14,7 @@ return {
       tf = { "terraform_fmt" },
       ["terraform-vars"] = { "terraform_fmt" },
       go = { "gofumpt", "goimports" }, -- "golines"
+      -- sql = { "sqlfmt" },
     },
     formatters = {
       black = {
@@ -26,6 +27,11 @@ return {
         args = { "-", "--quiet", "--profile", "black" },
         stdin = true,
       },
+      -- sqlfmt = {
+      --   exe = "sqlfmt",
+      --   -- args = { "--no-progressbar", "--line-length", "120" },
+      --   stdin = true,
+      -- },
       -- golines = {
       --   exe = "golines",
       --   args = { "-m", "99" },

@@ -10,19 +10,17 @@ return {
       require("dbee").install("go")
     end,
     config = function(_, opts)
-      -- local connection_path = vim.fn.expand("$HOME") .. "/.local/share/dbee/connections.json"
-      local dbee = require("dbee")
-      local layouts = require("dbee.layouts").Default:new({
-        drawer_width = 50,
-        result_height = 40,
-        call_log_height = 30,
-      })
+      -- local layouts = require("dbee.layouts").Default:new({
+      --   drawer_width = 50,
+      --   result_height = 40,
+      --   call_log_height = 30,
+      -- })
 
-      dbee.setup({
+      require("dbee").setup({
         -- connections
         sources = {
-          -- require("dbee.sources").FileSource:new(connection_path),
-          require("dbee.sources").EnvSource:new("DBEE_CONNECTIONS"),
+          require("dbee.sources").FileSource:new(vim.fn.expand("$HOME") .. "/.local/share/db_ui/connections.json"),
+          -- require("dbee.sources").EnvSource:new("DBEE_CONNECTIONS"),
         },
         -- editor
         editor = {
@@ -37,9 +35,30 @@ return {
       {
         "<leader>bt",
         ":lua require('dbee').toggle()<CR>",
-        desc = "toggle dbee explorer",
+        desc = "toggle db_ui",
         mode = "n",
         silent = true,
+      },
+      {
+        "<leader>bb",
+        ":! source ~/env_dadbod.sh <CR> :lua require('dbee').toggle()<CR>",
+        desc = "set credentials and toggle db_ui",
+        mode = "n",
+        silent = true,
+      },
+      {
+        "<leader>br",
+        function()
+          -- take input on which user to use, default ""
+          local user = vim.fn.input("DB User: ")
+          -- source the shell script to update the connections.json
+          vim.cmd("! source ~/env_dadbod.sh " .. user)
+          -- refresh the credentials
+          require("dbee").reload_sources()
+        end,
+        desc = "refresh credentials (optional provide user)",
+        mode = "n",
+        silent = false,
       },
     },
   },

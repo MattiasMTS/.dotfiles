@@ -1,7 +1,7 @@
 return {
   {
     "mrjosh/helm-ls",
-    enabled = false,
+    enabled = true,
     ft = { "*/templates/*.yaml", "*/templates/*.tpl", "*.gotmpl", "helmfile*.yaml" },
     dependencies = {
       "towolf/vim-helm",
@@ -10,11 +10,6 @@ return {
   {
     "towolf/vim-helm",
     ft = { "*/templates/*.yaml", "*/templates/*.tpl", "*.gotmpl", "helmfile*.yaml" },
-    enabled = true,
-  },
-  {
-    "jvirtanen/vim-hcl",
-    ft = { "*.tf", "*.tfvars", "*.hcl" },
     enabled = true,
   },
 }
