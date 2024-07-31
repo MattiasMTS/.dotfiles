@@ -1,0 +1,43 @@
+# This section documents the root level of the configuration file.
+live_config_reload = true
+import = ["~/.config/alacritty/alacritty-theme/themes/snazzy.toml"]
+
+[window]
+opacity = 0.90
+blur = true
+decorations = "buttonless"
+option_as_alt = "OnlyLeft"
+dynamic_title = true
+dynamic_padding = true
+
+[cursor]
+style = "Block"
+
+[font]
+size = 12.5
+
+[font.normal]
+family = "JetBrainsMono Nerd Font"
+
+[debug]
+render_timer = false
+log_level = "Warn"
+
+[selection]
+# when true, selected text will be copied to the primary clipboard
+save_to_clipboard = true
+
+
+[keyboard]
+bindings = [
+  { key = "F", mods = "Alt", chars = "\\x1bf" },
+  { key = "B", mods = "Alt", chars = "\\x1bb" },
+]
+
+# [colors.primary]
+# background = "#1E1E1E"
+# foreground = "#D4D4D4"
+
+[colors.cursor]
+text = "#1d1f21"
+cursor = "#cccccc"

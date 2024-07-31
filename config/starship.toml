@@ -1,0 +1,13 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+# Inserts a blank line between shell prompts
+add_newline = false
+format = '$all'
+
+[directory]
+truncation_length = 5
+
+[env_var.NVCDK_TARGETS]
+symbol = "🔧 "
+style = "bold green"
+format = 'on [$symbol$env_value]($style) '
