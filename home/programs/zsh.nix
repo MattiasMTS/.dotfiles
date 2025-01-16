@@ -11,8 +11,10 @@
     k = "kubectl";
     kc = "kubectx";
     kn = "kubens";
+    z = "zoxide";
     nv = "cd ~/src/github.com/northvolt/";
     pj = "cd ~/src/github.com/projects/";
+    dot = "cd ~/src/github.com/projects/.dotfiles/";
     tksv = "tmux kill-server";
     tf = "terraform";
     tg = "terragrunt";
@@ -47,8 +49,20 @@
       # eval "$(aws2-wrap --export)"
     }
 
+    function sesh-sessions() {
+      {
+        exec </dev/tty
+        exec <&1
+        local session
+        session=$(sesh list | fzf --height 40% --reverse --border-label ' sesh ' --border --prompt '⚡  ')
+        # zle reset-prompt > /dev/null 3>&1 || true
+        [[ -z "$session" ]] && return
+        sesh connect $session
+      }
+    }
+
     # keymaps
-    bindkey -s ^f "tms\n"
+    bindkey -s ^f "sesh-sessions\n"
     bindkey -s ^w "awsso\n"
   '';
   plugins = [

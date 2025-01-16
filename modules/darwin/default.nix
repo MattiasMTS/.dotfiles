@@ -14,6 +14,7 @@ in
     # TODO: uncomment later
     # brave
     # slack
+    raycast # unfree license
     neovim
     git
     tmux

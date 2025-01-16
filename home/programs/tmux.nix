@@ -66,7 +66,7 @@
     set-window-option -g pane-base-index 1
     set-option -g renumber-windows on
 
-  # enable mouse
+    # enable mouse
     set -g mouse on
     unbind -T copy-mode-vi MouseDragEnd1Pane
 
@@ -125,9 +125,26 @@
     bind-key -T copy-mode-vi 'C-l' select-pane -R
     bind-key -T copy-mode-vi 'C-\' select-pane -l
 
-    # tmux sessionizer
     # bind 'f' display-popup -E "tms"
     # bind 'j' display-popup -E "tms switch"
+
+    # tmux sessionizer
+    bind-key "f" run-shell "sesh connect \"$(
+      sesh list --icons | fzf-tmux -p 80%,70% \
+        --no-sort --ansi --border-label ' sesh ' --prompt '⚡  ' \
+        --header '  ^a all ^t tmux ^g configs ^x zoxide ^d tmux kill ^f find' \
+        --bind 'tab:down,btab:up' \
+        --bind 'ctrl-a:change-prompt(⚡  )+reload(sesh list --icons)' \
+        --bind 'ctrl-t:change-prompt(🪟  )+reload(sesh list -t --icons)' \
+        --bind 'ctrl-g:change-prompt(⚙️  )+reload(sesh list -c --icons)' \
+        --bind 'ctrl-x:change-prompt(📁  )+reload(sesh list -z --icons)' \
+        --bind 'ctrl-f:change-prompt(🔎  )+reload(fd -H -d 2 -t d -E .Trash . ~)' \
+        --bind 'ctrl-d:execute(tmux kill-session -t {2..})+change-prompt(⚡  )+reload(sesh list --icons)' \
+        --preview-window 'right:55%' \
+        --preview 'sesh preview {}'
+    )\""
+
+    bind -N "last-session (via sesh) " p run-shell "sesh last"
 
     # window activity notification
     setw -g monitor-activity on

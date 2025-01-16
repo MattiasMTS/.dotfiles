@@ -11,16 +11,12 @@ in
   home.homeDirectory = "/Users/${username}";
   xdg.enable = true;
 
-  # nvim managed by lazy.nvim instead of home-manager
-  xdg.configFile.nvim.source = mkOutOfStoreSymlink "/Users/${username}/.config/nvim";
-
   # user specific packages instead of system wide
   home.packages = with pkgs; [
-    raycast # unfree license
     fzf
     fd
     delta
-    # sesh # better tmux session management
+    sesh
     kubectl
     kubectx
     stern
@@ -37,17 +33,17 @@ in
     gradle
     # uv
     # duckdb
-    wezterm # TODO: consider migrating fully to ghostty later.
+    wezterm # TODO: consider migrating fully to ghostty later when nix fixed v1.0.1
     mosquitto
     go-migrate
     rancher
-    # TODO: double check if lua5.1 is needed
     # luarocks
     # lua
   ];
 
-  # wezterm managed by lua instead of home-manager
-  xdg.configFile.wezterm.source = mkOutOfStoreSymlink "/Users/${username}/.config/wezterm";
+  # packages managed outside of home-manager
+  xdg.configFile.nvim.source = mkOutOfStoreSymlink "/Users/${username}/src/github.com/projects/.dotfiles/.config/nvim";
+  xdg.configFile.wezterm.source = mkOutOfStoreSymlink "/Users/${username}/src/github.com/projects/.dotfiles/.config/wezterm";
 
   # TODO: add the following
   # postgresq git-sync against repo
