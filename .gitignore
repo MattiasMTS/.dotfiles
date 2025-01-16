@@ -1,2 +1,3 @@
 bin/.local/bin
-config/github-copilot
+result # nix output
+.config/nvim/lua/utils/dadbod.lua
