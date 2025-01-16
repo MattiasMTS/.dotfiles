@@ -36,9 +36,15 @@ in
     wezterm # TODO: consider migrating fully to ghostty later when nix fixed v1.0.1
     mosquitto
     go-migrate
-    rancher
     # luarocks
     # lua
+    # install specific version v2.7.0 of rancher:
+    (import (builtins.fetchGit {
+      name = "v2.7.0-rancher";
+      url = "https://github.com/NixOS/nixpkgs/";
+      ref = "refs/heads/nixpkgs-unstable";
+      rev = "976fa3369d722e76f37c77493d99829540d43845";
+     }) { system = "aarch64-darwin"; }).rancher
   ];
 
   # packages managed outside of home-manager
