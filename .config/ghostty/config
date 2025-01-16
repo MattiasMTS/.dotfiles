@@ -1,0 +1,11 @@
+# Docs:
+# ghostty +show-config --default --docs | vim
+
+macos-titlebar-style = tabs
+macos-titlebar-proxy-icon = hidden
+macos-option-as-alt = left
+
+background-opacity = 0.98
+background-blur-radius = 40
+
+mouse-hide-while-typing = true

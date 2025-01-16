@@ -4,6 +4,7 @@
 
   aggressiveResize = true;
   baseIndex = 1;
+  escapeTime = 0;
   disableConfirmationPrompt = true;
   keyMode = "vi";
   shell = "${pkgs.zsh}/bin/zsh";

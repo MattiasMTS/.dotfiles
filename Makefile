@@ -60,12 +60,13 @@ sync:
 	git push
 
 .PHONY: init
+CONFIGS := nvim wezterm ghostty
 init:
-	@echo "Initializing dotfile symlinks.."
-	[ -d ~/.config/nvim ] && rm -rf ~/.config/nvim || true
-	[ -d ~/.config/wezterm ] && rm -rf ~/.config/wezterm || true
-	ln -sf $(PWD)/.config/nvim ~/.config/nvim
-	ln -sf $(PWD)/.config/wezterm ~/.config/wezterm
+	@echo "Initializing dotfile symlinks.. ${CONFIGS}"
+	@for c in $(CONFIGS); do \
+		[ -d ~/.config/$$c ] && rm -rf ~/.config/$$c || true; \
+		ln -sf $(PWD)/.config/$$c ~/.config/$$c; \
+	done
 
 .PHONY: all
 all: deps check rebuild

@@ -44,10 +44,8 @@ in
   # packages managed outside of home-manager
   xdg.configFile.nvim.source = mkOutOfStoreSymlink "/Users/${username}/src/github.com/projects/.dotfiles/.config/nvim";
   xdg.configFile.wezterm.source = mkOutOfStoreSymlink "/Users/${username}/src/github.com/projects/.dotfiles/.config/wezterm";
+  xdg.configFile.ghostty.source = mkOutOfStoreSymlink "/Users/${username}/src/github.com/projects/.dotfiles/.config/ghostty";
 
-  # TODO: add the following
-  # postgresq git-sync against repo
-  # add tmux-sesh / zoxide
   programs = {
     # ghostty = import ./programs/ghostty.nix { inherit pkgs; }; # TODO: broken on v1.0.1
     zsh = import ./programs/zsh.nix { inherit config pkgs lib; };
