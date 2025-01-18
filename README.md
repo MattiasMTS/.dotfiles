@@ -24,7 +24,7 @@ curl -L https://nixos.org/nix/install | sh
 mkdir -p ~/src/github.com/projects
 nix-shell -p git --run 'git clone https://github.com/MattiasMTS/dotfiles
 ~/src/github.com/projects/.dotfiles'
-cd ~/src/github.com/projects.dotfiles
+cd ~/src/github.com/projects/.dotfiles
 ```
 
 3. Initialize nix-darwin:

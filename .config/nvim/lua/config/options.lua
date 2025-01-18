@@ -3,7 +3,7 @@
 -- therefore some of the ones below are commented out
 
 -- trying this out we'll see
-vim.g.lazyvim_python_lsp = "basedpyright"
+-- vim.g.lazyvim_python_lsp = "basedpyright"
 vim.g.lazyvim_python_ruff = "ruff"
 
 -- vim.g.autoformat = true -- lazyvim enabled

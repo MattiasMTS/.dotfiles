@@ -18,12 +18,10 @@
     tksv = "tmux kill-server";
     tf = "terraform";
     tg = "terragrunt";
+    docker = "podman";
   };
   sessionVariables = {
     EDITOR="nvim";
-    # docker podman comp
-    DOCKER_HOST="unix:///var/run/docker.sock";
-
     # go northvolt setup
     # to store the GOPROXY_PASS token in the macOS keychain run
     # security add-generic-password -a $USER -s GOPROXY_PASS -w
@@ -54,7 +52,10 @@
         exec </dev/tty
         exec <&1
         local session
-        session=$(sesh list | fzf --height 40% --reverse --border-label ' sesh ' --border --prompt '⚡  ')
+        session=$(sesh list | fzf --height 40% --reverse \
+          --border-label ' sesh ' \
+          --border --prompt '⚡  '
+          )
         # zle reset-prompt > /dev/null 3>&1 || true
         [[ -z "$session" ]] && return
         sesh connect $session
@@ -85,6 +86,11 @@
       name = "fzf-tab";
       src = pkgs.zsh-fzf-tab;
       file = "share/fzf-tab/fzf-tab.plugin.zsh";
+    }
+    {
+      name = "vi-mode";
+      src = pkgs.zsh-vi-mode;
+      file = "share/zsh-vi-mode/zsh-vi-mode.plugin.zsh";
     }
   ];
 }

@@ -19,6 +19,7 @@ in
     git
     tmux
     gnumake
+    postgresql_16
   ];
 
   # enable flakes globally
@@ -31,6 +32,10 @@ in
     jetbrains-mono
   ];
 
+  services.postgresql = {
+    enable = true;
+    package = pkgs.postgresql_16;
+  };
 
   # The platform the configuration will be used on.
   nixpkgs.hostPlatform = "aarch64-darwin";

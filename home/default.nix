@@ -25,9 +25,9 @@ in
     python310
     nodejs_22
     kubernetes-helm
-    # podman-desktop
-    # podman
-    # podman-compose
+    # podman-desktop # painfully slow to install
+    podman
+    podman-compose
     kotlin
     jdk17
     gradle
@@ -71,4 +71,5 @@ in
     ripgrep = { enable = true; };
     jq = { enable = true; };
   };
+
 }

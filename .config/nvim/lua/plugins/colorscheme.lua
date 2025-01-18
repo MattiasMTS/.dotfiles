@@ -41,9 +41,9 @@ return {
         hl.LineNr = { fg = c.bg_soft }
 
         -- For neo-tree
-        hl.NeoTreeNormal = { bg = c.bg_hard } -- Set a darker background for Neo-tree
-        hl.NeoTreeNormalNC = { bg = c.bg_hard } -- Set a darker background for non-current Neo-tree window
-        hl.NeoTreeEndOfBuffer = { bg = c.bg_hard } -- Set a darker background for end of buffer in Neo-tree
+        -- hl.NeoTreeNormal = { bg = c.bg_hard } -- Set a darker background for Neo-tree
+        -- hl.NeoTreeNormalNC = { bg = c.bg_hard } -- Set a darker background for non-current Neo-tree window
+        -- hl.NeoTreeEndOfBuffer = { bg = c.bg_hard } -- Set a darker background for end of buffer in Neo-tree
 
         -- For nvim-notify
         hl.NotifyBackground = { bg = c.bg_hard }
