@@ -50,6 +50,7 @@ clean:
 check:
 	@echo "Checking flake.."
 	nix flake check
+	darwin-rebuild check --flake .# --show-trace
 
 .PHONY: sync
 sync:
