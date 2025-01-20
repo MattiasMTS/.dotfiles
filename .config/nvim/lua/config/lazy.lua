@@ -49,6 +49,7 @@ require("lazy").setup({
     { import = "lazyvim.plugins.extras.lang.docker" },
     { import = "lazyvim.plugins.extras.lang.helm" },
     { import = "lazyvim.plugins.extras.lang.nix" },
+    { import = "lazyvim.plugins.extras.dap.core" },
 
     -- AI stuff
     { import = "lazyvim.plugins.extras.ai.copilot-chat" },
