@@ -1,0 +1,11 @@
+[[session]]
+name = "dotfiles"
+path = "~/src/github.com/projects/.dotfiles"
+
+[[session]]
+name = "projects"
+path = "~/src/github.com/projects/"
+
+[[session]]
+name = "northvolt"
+path = "~/src/github.com/northvolt/"

@@ -2,7 +2,7 @@
 
 Another nix + dotfile repository.
 
-<!--Add picture here from assets when done-->
+<!--TODO: Add picture here from assets when done-->
 
 ## Prerequisites
 
@@ -22,8 +22,7 @@ curl -L https://nixos.org/nix/install | sh
 
 ```bash
 mkdir -p ~/src/github.com/projects
-nix-shell -p git --run 'git clone https://github.com/MattiasMTS/dotfiles
-~/src/github.com/projects/.dotfiles'
+nix-shell -p git --run 'git clone https://github.com/MattiasMTS/.dotfiles ~/src/github.com/projects/.dotfiles'
 cd ~/src/github.com/projects/.dotfiles
 ```
 
@@ -41,17 +40,5 @@ make rebuild  # Build initial system configuration
 ```
 
 ## Daily Usage
-
-### Common Commands
-
-- `make rebuild` - Rebuild system after nix config changes
-- `make sync` - Sync dotfiles with git repository
-
-### Maintenance
-
-- `make update` - Update nix flake inputs
-- `make update-all` - Update flakes, rebuild system, and clean up
-- `make clean` - Run garbage collection
-- `make check` - Check nix flake for errors
 
 Run `make help` to see all available commands.

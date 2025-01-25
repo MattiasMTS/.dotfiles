@@ -1,5 +1,4 @@
-{ config, pkgs, lib, ... }:
-{
+{ config, pkgs, lib, ... }: {
   enable = true;
   history.size = 10000;
   history.path = "${config.xdg.dataHome}/zsh/history";
@@ -21,19 +20,24 @@
     docker = "podman";
   };
   sessionVariables = {
-    EDITOR="nvim";
+    EDITOR = "nvim";
     # go northvolt setup
     # to store the GOPROXY_PASS token in the macOS keychain run
     # security add-generic-password -a $USER -s GOPROXY_PASS -w
-    GOPROXY = ''https://nv:$(security find-generic-password -gs GOPROXY_PASS -w)@gomod.aut.aws.nvlt.co'';
-    GONOPROXY="none";
+    GOPROXY =
+      "https://nv:$(security find-generic-password -gs GOPROXY_PASS -w)@gomod.aut.aws.nvlt.co";
+    GONOPROXY = "none";
   };
-  initExtraFirst = ''
+  initExtra = ''
     if [ -n "$TTY" ]; then
       export GPG_TTY=$(tty)
     else
       export GPG_TTY="$TTY"
     fi
+
+    # custom NV binaries
+    path+="$HOME/go/bin"
+    fpath+="$HOME/go/bin"
 
     function awsso() {
       local profile
@@ -63,8 +67,10 @@
     }
 
     # keymaps
-    bindkey -s ^f "sesh-sessions\n"
-    bindkey -s ^w "awsso\n"
+    zle -N sesh-sessions
+    zle -N awsso
+    bindkey '^f' sesh-sessions
+    bindkey '^w' awsso
   '';
   plugins = [
     {

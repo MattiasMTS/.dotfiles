@@ -1,20 +1,21 @@
-{ pkgs, ... }:
-{
+{ pkgs, ... }: {
   enable = true;
 
   aggressiveResize = true;
   baseIndex = 1;
   escapeTime = 0;
   disableConfirmationPrompt = true;
+  historyLimit = 100000;
   keyMode = "vi";
   shell = "${pkgs.zsh}/bin/zsh";
   shortcut = "a";
-  terminal = "screen-256color";
+  terminal =
+    "xterm-ghostty"; # better undercurl see https://x.com/mitchellh/status/1847372611577401877?mx=2
   newSession = true;
   secureSocket = true;
+  sensibleOnTop = false; # bug with starship/shell stuff..
 
   plugins = with pkgs.tmuxPlugins; [
-    # sensible # buggy, see https://github.com/nix-community/home-manager/issues/5952
     {
       plugin = resurrect;
       extraConfig = ''
@@ -31,17 +32,11 @@
 
   ];
   extraConfig = ''
-    set -g history-limit 100000
-
-    # modern colors
-    # set -g default-terminal 'tmux-256color'
-    # set -g terminal-overrides "*256col*:Tc"
-
     # Undercurl
     set -as terminal-overrides ',*:Smulx=\E[4::%p1%dm'  # undercurl support
     set -as terminal-overrides ',*:Setulc=\E[58::2::%p1%{65536}%/%d::%p1%{256}%/%{255}%&%d::%p1%{255}%&%d%;m'  # underscore colours - needs tmux-3.0
 
-    # For image.nvim
+    # kitty graphics protocol
     set -gq allow-passthrough on
     set -g visual-activity off
 
@@ -60,7 +55,6 @@
 
     # window management
     bind Tab last-window
-    bind-key x kill-pane # skip "kill-pane 1? (y/n)" prompt (cmd+w)
     bind-key s choose-tree -Z -s
 
     # count from 1 instead of 0 for easier jumping etc
@@ -81,6 +75,9 @@
     set -g status-left-length 50
     set -g status-left '#[fg=blue,bold]#S #[fg=white,nobold]'
 
+    # Window activity notification
+    setw -g monitor-activity on
+
     # Window status
     setw -g window-status-format '#[fg=brightblack]#I:#W'
     setw -g window-status-current-format '#{?window_zoomed_flag,#[fg=yellow][Z],#[fg=magenta,bold]}#I:#W'
@@ -88,11 +85,6 @@
     # Right status - just time and date
     set -g status-right-length 50
     set -g status-right '#[fg=white]%H:%M #[fg=brightblack]%Y-%m-%d'
-
-    # Following are some recommended settings for Neovim. See ":checkhealth" for more information
-    set-option -sg escape-time 5
-    set-option -g focus-events on
-    set -g detach-on-destroy off
 
     # keybindings
     bind-key -T copy-mode-vi 'v' send-keys -X begin-selection
@@ -126,9 +118,6 @@
     bind-key -T copy-mode-vi 'C-l' select-pane -R
     bind-key -T copy-mode-vi 'C-\' select-pane -l
 
-    # bind 'f' display-popup -E "tms"
-    # bind 'j' display-popup -E "tms switch"
-
     # tmux sessionizer
     bind-key "f" run-shell "sesh connect \"$(
       sesh list --icons | fzf-tmux -p 80%,70% \
@@ -145,9 +134,6 @@
     )\""
 
     bind -N "last-session (via sesh) " p run-shell "sesh last"
-
-    # window activity notification
-    setw -g monitor-activity on
   '';
 }
 

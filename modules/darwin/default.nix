@@ -1,8 +1,6 @@
-{ pkgs, lib, config,... }:
-let
-  username = "mattiassjodin"; # TODO: fix as import instead
-in 
-{
+{ pkgs, lib, config, ... }:
+let username = "mattiassjodin"; # TODO: fix as import instead
+in {
   # yes it's I 
   users.users.${username} = {
     name = username;
@@ -20,6 +18,7 @@ in
     tmux
     gnumake
     postgresql_16
+    nixfmt-classic # consider moving to nixfmt-rfc-style later
   ];
 
   # enable flakes globally
@@ -28,9 +27,7 @@ in
   # Create /etc/zshrc that loads the nix-darwin environment.
   programs.zsh.enable = true;
 
-  fonts.packages = with pkgs.nerd-fonts; [
-    jetbrains-mono
-  ];
+  fonts.packages = with pkgs.nerd-fonts; [ jetbrains-mono ];
 
   services.postgresql = {
     enable = true;
@@ -42,11 +39,8 @@ in
 
   # TODO: use overlays instead
   # whitelist unfree packages 
-  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
-    "terraform"
-    "raycast"
-    "slack"
-  ];
+  nixpkgs.config.allowUnfreePredicate = pkg:
+    builtins.elem (lib.getName pkg) [ "terraform" "raycast" "slack" ];
 
   # Auto upgrade nix package and the daemon service.
   services.nix-daemon.enable = true;

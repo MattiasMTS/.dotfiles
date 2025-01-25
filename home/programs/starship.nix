@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{ pkgs, ... }: {
   enable = true;
   enableZshIntegration = true;
 
@@ -12,9 +11,7 @@
       style = "bold green";
       format = "on [$symbol$env_value]($style) ";
     };
-    battery.display = [
-      { threshold = 50; }
-    ];
+    battery.display = [{ threshold = 50; }];
   };
 
 }

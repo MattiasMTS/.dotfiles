@@ -1,11 +1,40 @@
 # Docs:
 # ghostty +show-config --default --docs | vim
 
-macos-titlebar-style = tabs
-macos-titlebar-proxy-icon = hidden
-macos-option-as-alt = left
+# fonts
+font-size = 20
+font-style = medium
+bold-is-bright = true
+theme = jellybeans
+font-family = "JetBrainsMono Nerd Font Mono"
 
+# cursor
+cursor-style = bar
+cursor-style-blink = false
+
+# clipboard
+copy-on-select = clipboard
+clipboard-trim-trailing-spaces = true
+
+# mouse
+mouse-scroll-multiplier = 1
+mouse-hide-while-typing = true
+
+# window
+initial-window = true
+resize-overlay = never
 background-opacity = 1.0
 background-blur-radius = 40
+window-save-state = always
+window-step-resize = false
+window-padding-balance = true
+confirm-close-surface = false
 
-mouse-hide-while-typing = true
+# behavior
+quit-after-last-window-closed = true
+shell-integration-features = true
+
+# macos
+macos-option-as-alt = left
+macos-titlebar-style = transparent
+macos-titlebar-proxy-icon = hidden

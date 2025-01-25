@@ -15,16 +15,6 @@ return {
     },
   },
   {
-    "almo7aya/openingh.nvim",
-    enabled = false,
-    cmd = { "OpenInGlRepo", "OpenInGHFile", "OpenInGHFileLines" },
-    keys = {
-      { "<leader>ghl", "<cmd>OpenInGHFileLines<CR>", desc = "Open in GitHub File Lines" },
-      { "<leader>ghr", "<cmd>OpenInGHRepo<CR>", desc = "Open in GitHub Repo" },
-      { "<leader>ghf", "<cmd>OpenInGHFile<CR>", desc = "Open in GitHub File" },
-    },
-  },
-  {
     "9seconds/repolink.nvim",
     enabled = true,
     dependencies = {

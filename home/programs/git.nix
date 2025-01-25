@@ -1,9 +1,8 @@
-{ username,... }:
-{
+{ username, ... }: {
   enable = true;
   userName = "MattiasMTS";
   userEmail = "mattias.sjodin.6764@hotmail.com";
-  
+
   extraConfig = {
     user.signingkey = "/Users/${username}/.ssh/id_ed25519.pub";
     commit.gpgsign = true;

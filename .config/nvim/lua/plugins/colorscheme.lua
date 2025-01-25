@@ -22,7 +22,7 @@ return {
     lazy = false,
     enabled = false,
     opts = {
-      transparent = false,
+      transparent = true,
     },
   },
   {
@@ -38,15 +38,15 @@ return {
         hl.GitSignsCurrentLineBlame = { fg = c.comment }
 
         hl.ColorColumn = { bg = c.bg_soft }
-        hl.LineNr = { fg = c.bg_soft }
+        hl.LineNr = { fg = c.comment }
 
         -- For neo-tree
-        -- hl.NeoTreeNormal = { bg = c.bg_hard } -- Set a darker background for Neo-tree
-        -- hl.NeoTreeNormalNC = { bg = c.bg_hard } -- Set a darker background for non-current Neo-tree window
-        -- hl.NeoTreeEndOfBuffer = { bg = c.bg_hard } -- Set a darker background for end of buffer in Neo-tree
+        -- hl.NeoTreeNormal = { bg = c.line }
+        -- hl.NeoTreeNormalNC = { bg = c.line }
+        -- hl.NeoTreeEndOfBuffer = { bg = c.line }
 
         -- For nvim-notify
-        hl.NotifyBackground = { bg = c.bg_hard }
+        hl.NotifyBackground = { bg = c.line }
 
         -- treesitter context
         -- hl.["@keyword.return"] = { fg = cp.pink, style = {} }
@@ -200,13 +200,6 @@ return {
       },
     },
   },
-  -- {
-  --   "Yazeed1s/oh-lucy.nvim",
-  --   lazy = false,
-  --   priority = 1000,
-  --   enabled = true,
-  --   opts = {},
-  -- },
   {
     "rmehri01/onenord.nvim",
     priority = 1000,

@@ -11,8 +11,7 @@ help:
 	@echo "  sync                  Sync dotfiles with git repository"
 	@echo ""
 	@echo "Maintenance:"
-	@echo "  update                Update nix-darwin flake inputs"
-	@echo "  update-all            Update flake, rebuild, and cleanup"
+	@echo "  update                Update both nixpkgs and home-manager"
 	@echo "  clean                 Run garbage collection"
 	@echo "  check                 Check nix flake for errors"
 
@@ -30,16 +29,8 @@ rebuild:
 
 .PHONY: update
 update:
-	@echo "Updating flake inputs.."
 	nix flake update
-
-.PHONY: update-all
-update-all:
-	@echo "Updating and rebuilding system.."
-	nix flake update
-	darwin-rebuild switch --flake .# --show-trace
-	nix-collect-garbage -d
-	@echo "System updated and cleaned!"
+	@echo "All updates completed"
 
 .PHONY: clean
 clean:
@@ -61,7 +52,7 @@ sync:
 	git push
 
 .PHONY: init
-CONFIGS := nvim wezterm ghostty
+CONFIGS := nvim wezterm ghostty sesh
 init:
 	@echo "Initializing dotfile symlinks.. ${CONFIGS}"
 	@for c in $(CONFIGS); do \
