@@ -1,31 +1,5 @@
 return {
   {
-    "rose-pine/neovim",
-    priority = 1000,
-    name = "rose-pine",
-    enabled = false,
-    lazy = false,
-    opts = {
-      -- variant = "moon",
-      dim_inactive_windows = false,
-      styles = {
-        transparency = true,
-      },
-      enable = {
-        terminal = true,
-      },
-    },
-  },
-  {
-    "folke/tokyonight.nvim",
-    priority = 1000,
-    lazy = false,
-    enabled = false,
-    opts = {
-      transparent = true,
-    },
-  },
-  {
     "HoNamDuong/hybrid.nvim",
     name = "hybrid",
     priority = 1000,
@@ -48,12 +22,21 @@ return {
         -- For nvim-notify
         hl.NotifyBackground = { bg = c.line }
 
+        -- inlay hints
+        hl.LspInlayHint = { fg = c.comment, bg = "NONE", italic = true }
+
         -- treesitter context
         -- hl.["@keyword.return"] = { fg = cp.pink, style = {} }
         -- hl.["@error.c"] = { fg = cp.none, style = {} }
         -- hl.["@error.cpp"] = { fg = cp.none, style = {} }
       end,
     },
+  },
+  {
+    "folke/tokyonight.nvim",
+    priority = 1000,
+    lazy = false,
+    enabled = false,
   },
   {
     "catppuccin/nvim",
@@ -198,41 +181,6 @@ return {
           }
         end,
       },
-    },
-  },
-  {
-    "rmehri01/onenord.nvim",
-    priority = 1000,
-    lazy = false,
-    enabled = false,
-    opts = {
-      disable = {
-        background = true, -- Disable setting the background color
-        cursorline = true,
-        eob_lines = false,
-      },
-      theme = "dark", -- "dark" or "light". Alternatively, remove the option and set vim.o.background instead
-      borders = true, -- Split window borders
-      fade_nc = false, -- Fade non-current windows, making them more distinguishable
-      -- Style that is applied to various groups: see `highlight-args` for options
-      styles = {
-        comments = "NONE",
-        strings = "NONE",
-        keywords = "NONE",
-        functions = "NONE",
-        variables = "NONE",
-        diagnostics = "underline",
-      },
-      -- Inverse highlight for different groups
-      inverse = {
-        match_paren = false,
-      },
-      custom_highlights = {
-        NeoTreeNormal = { bg = "#1c1c1c" }, -- Set a darker background for Neo-tree
-        NeoTreeNormalNC = { bg = "#1c1c1c" }, -- Set a darker background for non-current Neo-tree window
-        NeoTreeEndOfBuffer = { bg = "#1c1c1c" }, -- Set a darker background for end of buffer in Neo-tree
-      },
-      custom_colors = {}, -- Overwrite default colors
     },
   },
 }

@@ -1,10 +1,8 @@
-{ pkgs, lib, config,... }:
+{ pkgs, lib, config, ... }:
 # NOTE: docs for nix-darwin found
 # https://daiderd.com/nix-darwin/manual/index.html
-let
-  username = "mattiassjodin";
-in 
-{
+let username = "mattiassjodin";
+in {
   system = {
     # Used for backwards compatibility, please read the changelog before changing.
     # $ darwin-rebuild changelog
@@ -32,25 +30,28 @@ in
 
       # customize trackpad
       trackpad = {
-        Clicking = true;  # enable tap to click
-        TrackpadRightClick = true;  # enable two finger right click
-        TrackpadThreeFingerDrag = true;  # enable three finger drag
+        Clicking = true; # enable tap to click
+        TrackpadRightClick = true; # enable two finger right click
+        TrackpadThreeFingerDrag = true; # enable three finger drag
       };
 
       # customize settings that not supported by nix-darwin directly
       # Incomplete list of macOS `defaults` commands :
       #   https://github.com/yannbertrand/macos-defaults
       NSGlobalDomain = {
-        "com.apple.swipescrolldirection" = false;  # enable natural scrolling(default to true)
-        "com.apple.sound.beep.feedback" = 0;  # disable beep sound when pressing volume up/down key
-        AppleInterfaceStyle = "Dark";  # dark mode
-        AppleKeyboardUIMode = 3;  # Mode 3 enables full keyboard control.
-        ApplePressAndHoldEnabled = true;  # enable press and hold
+        "com.apple.swipescrolldirection" =
+          false; # enable natural scrolling(default to true)
+        "com.apple.sound.beep.feedback" =
+          0; # disable beep sound when pressing volume up/down key
+        AppleInterfaceStyle = "Dark"; # dark mode
+        AppleKeyboardUIMode = 3; # Mode 3 enables full keyboard control.
+        ApplePressAndHoldEnabled = false; # enable press and hold
 
         # sets how long it takes before it starts repeating.
-        InitialKeyRepeat = 15;  # normal minimum is 15 (225 ms), maximum is 120 (1800 ms)
+        InitialKeyRepeat =
+          15; # normal minimum is 15 (225 ms), maximum is 120 (1800 ms)
         # sets how fast it repeats once it starts.
-        KeyRepeat = 3;  # normal minimum is 2 (30 ms), maximum is 120 (1800 ms)
+        KeyRepeat = 2; # normal minimum is 2 (30 ms), maximum is 120 (1800 ms)
       };
 
       CustomUserPreferences = {
@@ -80,7 +81,8 @@ in
           "spans-displays" = 0; # Display have seperate spaces
         };
         "com.apple.WindowManager" = {
-          EnableStandardClickToShowDesktop = 0; # Click wallpaper to reveal desktop
+          EnableStandardClickToShowDesktop =
+            0; # Click wallpaper to reveal desktop
           StandardHideDesktopIcons = 0; # Show items on desktop
           HideDesktop = 0; # Do not hide items on desktop & stage manager
           StageManagerHideWidgets = 0;
@@ -95,16 +97,14 @@ in
         #   location = "~/Desktop";
         #   type = "png";
         # };
-        "com.apple.AdLib" = {
-          allowApplePersonalizedAdvertising = false;
-        };
+        "com.apple.AdLib" = { allowApplePersonalizedAdvertising = false; };
         # Prevent Photos from opening automatically when devices are plugged in
         "com.apple.ImageCapture".disableHotPlug = true;
       };
 
       loginwindow = {
-        GuestEnabled = false;  # disable guest user
-        SHOWFULLNAME = true;  # show full name in login window
+        GuestEnabled = false; # disable guest user
+        SHOWFULLNAME = true; # show full name in login window
       };
     };
 
@@ -114,7 +114,7 @@ in
 
       # NOTE: do NOT support remap capslock to both control and escape at the same time
       remapCapsLockToControl = true;
-      remapCapsLockToEscape  = false;
+      remapCapsLockToEscape = false;
     };
   };
 

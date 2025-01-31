@@ -8,7 +8,7 @@
     macos-titlebar-proxy-icon = "hidden";
     macos-option-as-alt = "left";
 
-    background-opacity = 0.97;
+    background-opacity = 1.0;
     background-blur-radius = 40;
     font-size = 14;
 

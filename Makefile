@@ -25,7 +25,7 @@ deps:
 rebuild:
 	@echo "Rebuilding nix-darwin configuration.."
 	git add .
-	darwin-rebuild switch --flake .# --show-trace
+	darwin-rebuild switch --verbose --flake .# --show-trace
 
 .PHONY: update
 update:
@@ -35,7 +35,7 @@ update:
 .PHONY: clean
 clean:
 	@echo "Running garbage collection.."
-	nix-collect-garbage -d
+	nix-collect-garbage -d --verbose
 
 .PHONY: check
 check:

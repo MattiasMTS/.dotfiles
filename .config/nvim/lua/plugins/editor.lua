@@ -21,17 +21,12 @@ return {
       },
     },
   },
-  {},
-  {
-    "stevearc/oil.nvim",
-    enabled = false,
-    opts = {
-      view_options = {
-        show_hidden = true,
-      },
-    },
-    keys = {
-      { "<leader>e", "<cmd>Oil<CR>", { silent = true, noremap = true } },
-    },
-  },
+  -- {
+  --   "folke/snacks.nvim",
+  --   opts = {
+  --     picker = {
+  --       enabled = true,
+  --     },
+  --   },
+  -- },
 }

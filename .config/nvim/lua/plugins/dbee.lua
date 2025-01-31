@@ -66,19 +66,11 @@ return {
         "<leader>bb",
         function()
           require("utils.dadbod").get_dadbod_connections()
-          -- require("dbee").toggle()
         end,
         desc = "set credentials and toggle db_ui",
         mode = "n",
         silent = true,
       },
-      -- {
-      --   "<leader>bb",
-      --   ":! source ~/env_dadbod.sh <CR> :lua require('dbee').toggle()<CR>",
-      --   desc = "set credentials and toggle db_ui",
-      --   mode = "n",
-      --   silent = true,
-      -- },
     },
   },
 }

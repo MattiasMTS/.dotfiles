@@ -6,7 +6,7 @@ return {
   opts = {
     format = {
       lsp_fallback = true,
-      timeout_ms = 750, -- half a sec, 3 second default is too long.
+      timeout_ms = 500, -- half a sec, 3 second default is too long.
     },
     formatters_by_ft = {
       python = { "isort", "black" },
@@ -32,6 +32,13 @@ return {
         exe = "sqlfmt",
         stdin = true,
         args = { "-", "--fast", "--line-length", "120", "--quiet", "--no-progressbar" },
+      },
+      gofumpt = {
+        prepend_args = { "-extra", "-w", "$FILENAME" },
+        stdin = false,
+      },
+      golines = {
+        prepend_args = { "--base-formatter=gofumpt", "--ignore-generated", "--tab-len=1", "--max-len=120" },
       },
       -- golines = {
       --   exe = "golines",

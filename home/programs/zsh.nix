@@ -18,6 +18,7 @@
     tf = "terraform";
     tg = "terragrunt";
     docker = "podman";
+    docker-compose = "podman-compose";
   };
   sessionVariables = {
     EDITOR = "nvim";
@@ -28,16 +29,17 @@
       "https://nv:$(security find-generic-password -gs GOPROXY_PASS -w)@gomod.aut.aws.nvlt.co";
     GONOPROXY = "none";
   };
+  initExtraFirst = ''
+    # custom NV binaries
+    path+="$HOME/go/bin"
+    fpath+="$HOME/go/bin"
+  '';
   initExtra = ''
     if [ -n "$TTY" ]; then
       export GPG_TTY=$(tty)
     else
       export GPG_TTY="$TTY"
     fi
-
-    # custom NV binaries
-    path+="$HOME/go/bin"
-    fpath+="$HOME/go/bin"
 
     function awsso() {
       local profile
@@ -48,7 +50,6 @@
       fi
       aws --no-cli-auto-prompt --no-cli-pager sso login --profile="$profile"
       export AWS_PROFILE="$profile"
-      # eval "$(aws2-wrap --export)"
     }
 
     function sesh-sessions() {
@@ -72,6 +73,7 @@
     bindkey '^f' sesh-sessions
     bindkey '^w' awsso
   '';
+  envExtra = "\n";
   plugins = [
     {
       name = "zsh-autosuggestions";

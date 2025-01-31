@@ -1,0 +1,36 @@
+{
+  "dbt-unit-test mock_ref": {
+    "prefix": "dbtref",
+    "body": [
+      "{% call dbt_unit_testing.test(\"${1:model_name}\", \"${2:test_description}\") %}",
+      "    {% call dbt_unit_testing.mock_ref(\"${3:ref_model}\", ${4:options=}) %}",
+      "        ${5:column1}  | ${6:column2}  | ${7:column3}   | ${8:column4}",
+      "        ${9:'value1'} | ${10:'value2'} | ${11:'value3'}  | ${12:'value4'}",
+      "    {% endcall %}",
+      "",
+      "    {% call dbt_unit_testing.expect(${13:options=}) %}",
+      "        ${14:column1}  | ${15:column2}  | ${16:column3}  | ${17:column4}",
+      "        ${18:'value1'} | ${19:'value2'} | ${20:'value3'} | ${21:'value4'}",
+      "    {% endcall %}",
+      "{% endcall %}"
+    ],
+    "description": "create dbt-unit-test with mock_ref"
+  },
+  "dbt-unit-test mock_source": {
+    "prefix": "dbtsource",
+    "body": [
+      "{% call dbt_unit_testing.test(\"${1:model_name}\", \"${2:test_description}\") %}",
+      "    {% call dbt_unit_testing.mock_source(\"${3:source_name}\", \"${4:table_name}\", ${5:options=}) %}",
+      "        ${6:column1}  | ${7:column2}  | ${8:column3}  | ${9:column4}",
+      "        ${10:'value1'} | ${11:'value2'} | ${12:'value3'} | ${13:'value4'}",
+      "    {% endcall %}",
+      "",
+      "    {% call dbt_unit_testing.expect(${14:options=}) %}",
+      "        ${15:column1}  | ${16:column2}  | ${17:column3}  | ${18:column4}",
+      "        ${19:'value1'} | ${20:'value2'} | ${21:'value3'} | ${22:'value4'}",
+      "    {% endcall %}",
+      "{% endcall %}"
+    ],
+    "description": "create dbt-unit-test with mock_source"
+  }
+}

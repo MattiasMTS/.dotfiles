@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs, lib, inputs, ... }:
 let
   username = "mattiassjodin"; # TODO: fix as import instead
   inherit (config.lib.file) mkOutOfStoreSymlink;
@@ -24,9 +24,7 @@ in {
     python310
     nodejs_23
     kubernetes-helm
-    # podman-desktop # painfully slow to install
-    podman
-    podman-compose
+
     kotlin
     jdk17
     gradle
@@ -35,17 +33,11 @@ in {
     wezterm # TODO: consider migrating fully to ghostty later when nix fixed v1.0.1
     # mosquitto # mqtt broker
     go-migrate
+    # sketchybar
 
-    # render markdown diagrams
-    # nodePackages.mermaid-cli
+    inputs.nixpkgs-poetry-1_8_5.legacyPackages.${pkgs.system}.poetry
+    inputs.nixpkgs-rancher-2_7_0.legacyPackages.${pkgs.system}.rancher
 
-    # install specific version v2.7.0 of rancher:
-    (import (builtins.fetchGit {
-      name = "v2.7.0-rancher";
-      url = "https://github.com/NixOS/nixpkgs/";
-      ref = "refs/heads/nixpkgs-unstable";
-      rev = "976fa3369d722e76f37c77493d99829540d43845";
-    }) { system = "aarch64-darwin"; }).rancher
   ];
 
   # packages managed outside of home-manager
@@ -61,6 +53,7 @@ in {
   xdg.configFile.sesh.source = mkOutOfStoreSymlink
     "/Users/${username}/src/github.com/projects/.dotfiles/.config/sesh";
 
+  # applications/programs
   programs = {
     neovim = {
       enable = true;
@@ -79,12 +72,12 @@ in {
     java = import ./programs/java.nix { inherit pkgs; };
     awscli = { enable = true; };
     lazygit = import ./programs/lazygit.nix { inherit pkgs; };
-    poetry = { enable = true; };
+    # poetry = { enable = true; };
     gh = import ./programs/gh.nix { inherit pkgs; };
     bat = { enable = true; };
     k9s = { enable = true; };
     ripgrep = { enable = true; };
     jq = { enable = true; };
+    ssh = import ./programs/ssh.nix { inherit pkgs; };
   };
-
 }

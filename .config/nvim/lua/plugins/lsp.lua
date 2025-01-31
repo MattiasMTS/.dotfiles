@@ -19,7 +19,7 @@ return {
     "neovim/nvim-lspconfig",
     opts = {
       diagnostics = { virtual_text = { prefix = "icons" } },
-      inlay_hints = { enabled = false },
+      inlay_hints = { enabled = true },
       capabilities = {
         workspace = {
           didChangeWatchedFiles = {
@@ -31,12 +31,9 @@ return {
         lua_ls = {
           settings = {
             Lua = {
-              workspace = {
-                checkThirdParty = false,
-              },
-              completion = {
-                callSnippet = "Replace",
-              },
+              diagnostics = { globals = { "vim" }, disable = { "different-requires" } },
+              workspace = { checkThirdParty = false },
+              completion = { callSnippet = "Replace" },
             },
           },
         },
@@ -45,21 +42,25 @@ return {
         gopls = {
           filetypes = { "go", "gomod", "gowork", "gotmpl" },
           settings = {
-            env = {
-              GOEXPERIMENT = "rangefunc",
-            },
-            formatting = {
-              gofumpt = true,
+            env = { GOEXPERIMENT = "rangefunc" },
+            formatting = { gofumpt = false },
+            hints = {
+              -- https://github.com/golang/tools/blob/master/gopls/doc/inlayHints.md
+              parameterNames = true,
+              assignVariableTypes = true,
+              constantValues = true,
+              compositeLiteralTypes = true,
+              compositeLiteralFields = true,
+              functionTypeParameters = true,
             },
           },
         },
         kotlin_language_server = {
           root_dir = require("lspconfig").util.root_pattern("settings.gradle.kts", "build.gradle.kts", ".git"),
           single_file_support = true,
-          init_options = {
-            storagePath = "/tmp/kotlin-language-server",
-          },
+          init_options = { storagePath = "/tmp/kotlin-language-server" },
         },
+        dockerls = {},
       },
     },
   },

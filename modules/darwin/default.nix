@@ -1,10 +1,13 @@
 { pkgs, lib, config, ... }:
 let username = "mattiassjodin"; # TODO: fix as import instead
 in {
+
   # yes it's I 
   users.users.${username} = {
     name = username;
     home = "/Users/${username}";
+    isHidden = false;
+    shell = pkgs.zsh;
   };
 
   # system wide packages (all users)
@@ -21,8 +24,16 @@ in {
     nixfmt-classic # consider moving to nixfmt-rfc-style later
   ];
 
+  homebrew = {
+    enable = true;
+    # some weird gvpx issue installing using home-manager..
+    brews = [ "podman" "podman-compose" ];
+    # casks = [ "brave" ];
+  };
+
   # enable flakes globally
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.optimise.automatic = true;
 
   # Create /etc/zshrc that loads the nix-darwin environment.
   programs.zsh.enable = true;

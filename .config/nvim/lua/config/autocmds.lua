@@ -19,11 +19,7 @@ vim.api.nvim_create_autocmd("VimEnter", {
   callback = function()
     local venv = vim.fn.findfile("pyproject.toml", vim.fn.getcwd() .. ";")
     if venv ~= "" then
-      local ok, venv_selector = pcall(require, "venv-selector")
-      if ok == false then
-        return
-      end
-      pcall(venv_selector.retrieve_from_cache)
+      require("venv-selector").retrieve_from_cache()
     end
   end,
   once = true,

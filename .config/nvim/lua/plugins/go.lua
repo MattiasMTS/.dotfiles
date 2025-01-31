@@ -1,10 +1,8 @@
-local go_files = { "go", "go.mod", "go.sum" }
 return {
   {
     "olexsmir/gopher.nvim",
     branch = "develop",
     enabled = true,
-    ft = go_files,
     build = function()
       vim.cmd([[silent! GoInstallDeps]])
     end,
@@ -18,18 +16,13 @@ return {
   },
   {
     "ray-x/go.nvim",
-    enabled = true,
-    ft = go_files,
+    event = { "CmdlineEnter" },
+    enabled = false,
     opts = {
-      lsp_inlay_hints = {
-        enable = false,
-      },
+      lsp_inlay_hints = { enable = true },
+      lsp_cfg = false,
+      dap_debug = false,
+      luasnip = true,
     },
-    config = function(_, opts)
-      require("go").setup(opts)
-    end,
-    build = function()
-      require("go.install").update_all_sync()
-    end,
   },
 }

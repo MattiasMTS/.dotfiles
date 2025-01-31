@@ -12,7 +12,9 @@ return {
   },
   {
     "saghen/blink.cmp",
+    -- dependencies = { "L3MON4D3/LuaSnip", version = "v2.*" },
     opts = {
+      -- snippets = { preset = "luasnip" },
       appearance = {
         kind_icons = {
           Text = "󰉿",
@@ -46,9 +48,14 @@ return {
       },
       keymap = {
         preset = "default",
+        -- better selection
+        ["<CR>"] = { "select_and_accept", "fallback" },
+        -- ["C-space"] = { "select_and_accept", "fallback" },
+        ["<C-space>"] = { "show", "show_documentation", "hide_documentation" },
+
         -- enable snippet jumping
         ["<Tab>"] = {
-          _G.LazyVim.cmp.map({ "snippet_forward", "ai_accept" }),
+          _G.LazyVim.cmp.map({ "snippet_forward" }),
           "fallback",
         },
         ["<S-Tab>"] = { "snippet_backward", "fallback" },
@@ -59,10 +66,6 @@ return {
         ["<C-u>"] = { "scroll_documentation_up", "fallback" },
         ["<C-d>"] = { "scroll_documentation_down", "fallback" },
         ["<C-e>"] = { "hide" },
-
-        -- better selection
-        ["<C-space>"] = { "select_and_accept", "fallback" },
-        -- ["<C-space>"] = { "show", "show_documentation", "hide_documentation" },
       },
     },
   },
@@ -70,6 +73,7 @@ return {
     "saghen/blink.cmp",
     dependencies = {
       "MattiasMTS/cmp-dbee",
+      ft = { "sql" },
       dev = true,
       dependencies = { "kndndrj/nvim-dbee" },
     },
@@ -77,10 +81,7 @@ return {
       sources = {
         compat = { "dbee" },
         providers = {
-          dbee = {
-            name = "dbee",
-            module = "blink.compat.source",
-          },
+          dbee = { name = "dbee", module = "blink.compat.source" },
         },
       },
     },
@@ -190,9 +191,7 @@ return {
   {
     "danymat/neogen",
     cmd = "Neogen",
-    dependencies = {
-      "L3MON4D3/LuaSnip",
-    },
+    dependencies = { "L3MON4D3/LuaSnip", version = "v2.*" },
     keys = {
       {
         "<leader>ne",
