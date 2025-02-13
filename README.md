@@ -4,12 +4,6 @@ Another nix + dotfile repository.
 
 <!--TODO: Add picture here from assets when done-->
 
-## Prerequisites
-
-- macOS
-- Git
-- Command Line Tools (`xcode-select --install`)
-
 ## Installation
 
 1. Install Nix:
@@ -35,7 +29,7 @@ nix run nix-darwin --extra-experimental-features 'nix-command flakes' -- switch 
 4. Set up dotfile symlinks and build system:
 
 ```bash
-make init     # Create symlinks for nvim and wezterm configs
+make init     # Create symlinks for apps not managed by nix
 make rebuild  # Build initial system configuration
 ```
 
