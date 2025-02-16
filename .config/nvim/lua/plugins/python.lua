@@ -2,10 +2,10 @@ return {
   {
     "linux-cultist/venv-selector.nvim",
     branch = "regexp",
-    ft = "python,sql",
-    dependencies = { "neovim/nvim-lspconfig", "nvim-telescope/telescope.nvim", "mfussenegger/nvim-dap-python" },
-    opts = {},
     event = "VeryLazy",
+    ft = "python,sql",
+    dependencies = { "nvim-telescope/telescope.nvim" },
+    opts = {},
     keys = {
       { "<leader>cv", "<cmd>VenvSelect<cr>" },
     },

@@ -42,25 +42,20 @@ return {
         gopls = {
           filetypes = { "go", "gomod", "gowork", "gotmpl" },
           settings = {
-            env = { GOEXPERIMENT = "rangefunc" },
-            formatting = { gofumpt = false },
-            hints = {
-              -- https://github.com/golang/tools/blob/master/gopls/doc/inlayHints.md
-              parameterNames = true,
-              assignVariableTypes = true,
-              constantValues = true,
-              compositeLiteralTypes = true,
-              compositeLiteralFields = true,
-              functionTypeParameters = true,
-            },
+            -- env = { GOEXPERIMENT = "rangefunc" },
+            formatting = { gofumpt = false }, -- managed by conform
+            -- https://github.com/golang/tools/blob/master/gopls/doc/inlayHints.md
+            hints = {},
           },
         },
         kotlin_language_server = {
-          root_dir = require("lspconfig").util.root_pattern("settings.gradle.kts", "build.gradle.kts", ".git"),
+          root_dir = function(name)
+            return require("lspconfig").util.root_pattern("settings.gradle.kts", "build.gradle.kts", ".git")(name)
+              or vim.fn.getcwd()
+          end,
           single_file_support = true,
           init_options = { storagePath = "/tmp/kotlin-language-server" },
         },
-        dockerls = {},
       },
     },
   },

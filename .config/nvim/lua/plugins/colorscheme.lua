@@ -15,20 +15,15 @@ return {
         hl.LineNr = { fg = c.comment }
 
         -- For neo-tree
-        -- hl.NeoTreeNormal = { bg = c.line }
-        -- hl.NeoTreeNormalNC = { bg = c.line }
-        -- hl.NeoTreeEndOfBuffer = { bg = c.line }
+        hl.NeoTreeNormal = { bg = c.bg }
+        hl.NeoTreeNormalNC = { bg = c.bg }
+        hl.NeoTreeEndOfBuffer = { bg = c.bg }
 
         -- For nvim-notify
         hl.NotifyBackground = { bg = c.line }
 
         -- inlay hints
         hl.LspInlayHint = { fg = c.comment, bg = "NONE", italic = true }
-
-        -- treesitter context
-        -- hl.["@keyword.return"] = { fg = cp.pink, style = {} }
-        -- hl.["@error.c"] = { fg = cp.none, style = {} }
-        -- hl.["@error.cpp"] = { fg = cp.none, style = {} }
       end,
     },
   },
@@ -73,12 +68,6 @@ return {
         treesitter = true,
         native_lsp = {
           enabled = true,
-          -- virtual_text = {
-          --   errors = { "italic" },
-          --   hints = { "italic" },
-          --   warnings = { "italic" },
-          --   information = { "italic" },
-          -- },
           underlines = {
             errors = { "underline" },
             hints = { "underline" },

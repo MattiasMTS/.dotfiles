@@ -4,7 +4,7 @@ return {
   event = { "BufWritePre" },
   cmd = { "ConformInfo" },
   opts = {
-    format = {
+    default_format_opts = {
       lsp_fallback = true,
       timeout_ms = 500, -- half a sec, 3 second default is too long.
     },

@@ -1,7 +1,7 @@
 return {
   -- disable automatic insertion of pairs like parenthesis etc
   -- using nvim-autopairs instead
-  { "echasnovski/mini.pairs", enabled = false },
+  { "echasnovski/mini.pairs", enabled = true },
   -- no need to extend a/i
   { "echasnovski/mini.ai", enabled = false },
   {
@@ -12,9 +12,7 @@ return {
   },
   {
     "saghen/blink.cmp",
-    -- dependencies = { "L3MON4D3/LuaSnip", version = "v2.*" },
     opts = {
-      -- snippets = { preset = "luasnip" },
       appearance = {
         kind_icons = {
           Text = "󰉿",
@@ -67,6 +65,7 @@ return {
         ["<C-d>"] = { "scroll_documentation_down", "fallback" },
         ["<C-e>"] = { "hide" },
       },
+      completion = { ghost_text = { enabled = false } },
     },
   },
   {
@@ -225,10 +224,8 @@ return {
   },
   {
     "windwp/nvim-autopairs",
+    enabled = false,
     event = "InsertEnter",
-    opts = {
-      fast_wrap = {},
-      disable_filetype = { "TelescopePrompt", "vim" },
-    },
+    config = true,
   },
 }

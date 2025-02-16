@@ -2,7 +2,7 @@
 # ghostty +show-config --default --docs | vim
 
 # fonts
-font-size = 20
+font-size = 14
 font-style = medium
 bold-is-bright = true
 theme = afterglow
