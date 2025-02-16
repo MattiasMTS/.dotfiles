@@ -34,6 +34,8 @@ in {
   # enable flakes globally
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nix.optimise.automatic = true;
+  # Auto upgrade nix package and the daemon service.
+  nix.enable = true;
 
   # Create /etc/zshrc that loads the nix-darwin environment.
   programs.zsh.enable = true;
@@ -52,9 +54,6 @@ in {
   # whitelist unfree packages 
   nixpkgs.config.allowUnfreePredicate = pkg:
     builtins.elem (lib.getName pkg) [ "terraform" "raycast" "slack" ];
-
-  # Auto upgrade nix package and the daemon service.
-  services.nix-daemon.enable = true;
 
   # do garbage collection bi-daily to keep disk usage low
   nix.gc = {

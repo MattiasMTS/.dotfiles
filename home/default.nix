@@ -30,10 +30,8 @@ in {
     gradle
     # uv
     # duckdb
-    wezterm # TODO: consider migrating fully to ghostty later when nix fixed v1.0.1
     # mosquitto # mqtt broker
     go-migrate
-    # sketchybar
 
     inputs.nixpkgs-poetry-1_8_5.legacyPackages.${pkgs.system}.poetry
     inputs.nixpkgs-rancher-2_7_0.legacyPackages.${pkgs.system}.rancher
@@ -46,8 +44,6 @@ in {
       "/Users/${username}/src/github.com/projects/.dotfiles/.config/nvim";
     force = true;
   };
-  xdg.configFile.wezterm.source = mkOutOfStoreSymlink
-    "/Users/${username}/src/github.com/projects/.dotfiles/.config/wezterm";
   xdg.configFile.ghostty.source = mkOutOfStoreSymlink
     "/Users/${username}/src/github.com/projects/.dotfiles/.config/ghostty";
   xdg.configFile.sesh.source = mkOutOfStoreSymlink
@@ -64,7 +60,7 @@ in {
     # ghostty = import ./programs/ghostty.nix { inherit pkgs; }; 
     zsh = import ./programs/zsh.nix { inherit config pkgs lib; };
     starship = import ./programs/starship.nix { inherit pkgs; };
-    git = import ./programs/git.nix { inherit username; };
+    git = import ./programs/git.nix { inherit username lib; };
     tmux = import ./programs/tmux.nix { inherit pkgs; };
     fzf = import ./programs/fzf.nix { inherit pkgs; };
     zoxide = (import ./programs/zoxide.nix { inherit pkgs; });
@@ -72,7 +68,6 @@ in {
     java = import ./programs/java.nix { inherit pkgs; };
     awscli = { enable = true; };
     lazygit = import ./programs/lazygit.nix { inherit pkgs; };
-    # poetry = { enable = true; };
     gh = import ./programs/gh.nix { inherit pkgs; };
     bat = { enable = true; };
     k9s = { enable = true; };

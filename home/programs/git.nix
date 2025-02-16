@@ -3,10 +3,13 @@
   userName = "MattiasMTS";
   userEmail = "mattias.sjodin.6764@hotmail.com";
 
+  signing = {
+    key = "/Users/${username}/.ssh/id_ed25519.pub";
+    signByDefault = true;
+    format = "ssh";
+  };
+
   extraConfig = {
-    user.signingkey = "/Users/${username}/.ssh/id_ed25519.pub";
-    commit.gpgsign = true;
-    gpg.format = "ssh";
     core = {
       editor = "nvim";
       pager = "delta";
@@ -45,9 +48,7 @@
             --all -i --pretty=format: --name-only | \
             sort | uniq -c | sort -rn | head -10'';
     };
-  };
 
-  extraConfig = {
     "includeIf \"gitdir:~/northvolt/\"" = {
       email = "mattias.sjodin@northvolt.com";
     };
