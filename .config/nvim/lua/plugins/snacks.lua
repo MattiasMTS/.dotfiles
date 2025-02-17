@@ -9,6 +9,7 @@ return {
       scroll = { enabled = false },
       bigfile = { enabled = false },
       statuscolumn = { enabled = true },
+      image = { enabled = true },
     },
   },
 }
