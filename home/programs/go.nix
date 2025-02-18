@@ -1,7 +1,7 @@
 { pkgs, ... }: {
   enable = true;
 
-  package = pkgs.go; # if you want to use a specific version of go
+  package = pkgs.go_1_24;
   goPath = "go";
   goBin = ".local/bin.go";
   goPrivate = [ "github.com/northvolt" ];
