@@ -33,6 +33,7 @@ return {
         result = {
           -- number of rows in the results set to display per page
           page_size = 50,
+          focus_result = false,
         },
         -- mappings
         mappings = {

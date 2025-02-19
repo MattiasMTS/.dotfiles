@@ -10,4 +10,9 @@ return {
       { "<leader>cv", "<cmd>VenvSelect<cr>" },
     },
   },
+  {
+    -- lazy load due to dependencies above
+    "nvim-telescope/telescope.nvim",
+    event = "VeryLazy",
+  },
 }

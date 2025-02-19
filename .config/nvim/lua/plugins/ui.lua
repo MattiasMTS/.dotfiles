@@ -10,15 +10,7 @@ return {
   {
     "Bekaboo/dropbar.nvim",
     event = "BufEnter",
-    opts = {},
-    keys = function()
-      local dropbar_api = require("dropbar.api")
-      return {
-        { "<space>;", dropbar_api.pick, { desc = "Pick symbols in winbar" } },
-        { "[;", dropbar_api.goto_context_start, { desc = "Go to start of current context" } },
-        { "];", dropbar_api.select_next_context, { desc = "Select next context" } },
-      }
-    end,
+    enabled = true,
   },
   {
     "nvim-lualine/lualine.nvim",
