@@ -1,7 +1,5 @@
-{ config, pkgs, lib, inputs, ... }:
-let
-  username = "mattiassjodin"; # TODO: fix as import instead
-  inherit (config.lib.file) mkOutOfStoreSymlink;
+{ config, pkgs, lib, inputs, username, ... }:
+let inherit (config.lib.file) mkOutOfStoreSymlink;
 in {
   programs.home-manager.enable = true;
   home.stateVersion = "24.11";
@@ -19,6 +17,8 @@ in {
     kubectl
     kubectx
     # stern
+    # uv
+    # duckdb
     terraform # unfree license
     terragrunt
     python310
@@ -28,10 +28,9 @@ in {
     kotlin
     jdk17
     gradle
-    # uv
-    # duckdb
-    # mosquitto # mqtt broker
+    mosquitto
     go-migrate
+    tree
 
     inputs.nixpkgs-poetry-1_8_5.legacyPackages.${pkgs.system}.poetry
     inputs.nixpkgs-rancher-2_7_0.legacyPackages.${pkgs.system}.rancher

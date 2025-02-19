@@ -1,8 +1,7 @@
-{ pkgs, lib, config, ... }:
+{ pkgs, lib, config, inputs, username, ... }:
 # NOTE: docs for nix-darwin found
 # https://daiderd.com/nix-darwin/manual/index.html
-let username = "mattiassjodin";
-in {
+{
   system = {
     # Used for backwards compatibility, please read the changelog before changing.
     # $ darwin-rebuild changelog

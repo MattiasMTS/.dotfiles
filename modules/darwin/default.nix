@@ -1,6 +1,4 @@
-{ pkgs, lib, config, ... }:
-let username = "mattiassjodin"; # TODO: fix as import instead
-in {
+{ pkgs, lib, username, ... }: {
 
   # yes it's I 
   users.users.${username} = {

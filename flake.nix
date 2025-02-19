@@ -44,7 +44,7 @@
       # darwin-rebuild switch --flake ~/nix
       darwinConfigurations."${hostname}" = nix-darwin.lib.darwinSystem {
         system = system;
-        specialArgs = { inherit inputs; };
+        specialArgs = { inherit inputs username; };
         modules = [
           # `nix-darwin` config
           ./modules/darwin/default.nix
@@ -56,7 +56,7 @@
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.users.${username} = import ./home;
-            home-manager.extraSpecialArgs = { inherit inputs; };
+            home-manager.extraSpecialArgs = { inherit inputs username; };
           }
           # `nix-homebrew` config
           nix-homebrew.darwinModules.nix-homebrew
